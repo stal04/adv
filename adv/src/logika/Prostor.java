@@ -11,17 +11,18 @@ import java.util.Map;
 import java.util.HashMap;
 
 /**
- * Trida Prostor - popisuje jednotlivĂ© prostory (mĂ­stnosti) hry
+ * Trida Prostor - popisuje jednotlivé prostory (místnosti) hry
  *
- * Tato tĹ™Ă­da je souÄŤĂˇstĂ­ jednoduchĂ© textovĂ© hry.
+ * Tato třída je součástí jednoduché textové hry.
  *
- * "Prostor" reprezentuje jedno mĂ­sto (mĂ­stnost, prostor, ..) ve scĂ©nĂˇĹ™i hry.
- * Prostor mĹŻĹľe mĂ­t sousednĂ­ prostory pĹ™ipojenĂ© pĹ™es vĂ˝chody. Pro kaĹľdĂ˝ vĂ˝chod
- * si prostor uklĂˇdĂˇ odkaz na sousedĂ­cĂ­ prostor.
+ * "Prostor" reprezentuje jedno místo (místnost, prostor, ..) ve scénáři hry.
+ * Prostor může mít sousední prostory připojené přes východy. Pro každý východ
+ * si prostor ukládá odkaz na sousedící prostor.
  *
- * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova; Lenka Ĺ ĹĄastnĂˇ
- * @version pro ĹˇkolnĂ­ rok 2017/2018
+ * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova; Lenka Šťastná
+ * @version pro školní rok 2017/2018
  */
+
 public class Prostor {
 
     private String nazev;
@@ -30,71 +31,67 @@ public class Prostor {
     private Map<String, Vec> seznamVeci; // veci v miestnosti
     private Map<String, Postava> seznamPostav; // postavy v miestnosti
     private boolean jeZamceny = false; // inicializĂˇcia zamknutĂ˝ch priestorov
-    private double x;
-    private double y;
+  
     /**
-     * VytvoĹ™enĂ­ prostoru se zadanĂ˝m popisem, napĹ™. "kuchyĹ�", "hala", "trĂˇvnĂ­k
-     * pĹ™ed domem"
+     * Vytvoření prostoru se zadaným popisem, např. "kuchyň", "hala", "trávník
+     * před domem"
      *
-     * @param nazev nazev prostoru, jednoznaÄŤnĂ˝ identifikĂˇtor, jedno slovo nebo
-     * vĂ­ceslovnĂ˝ nĂˇzev bez mezer.
+     * @param nazev nazev prostoru, jednoznačný identifikátor, jedno slovo nebo
+     * víceslovný název bez mezer.
      * @param popis Popis prostoru.
      */
-    public Prostor(String nazev, String popis, double x, double y) {
+    public Prostor(String nazev, String popis) {
         this.nazev = nazev;
         this.popis = popis;
         vychody = new HashSet<Prostor>();
         seznamVeci = new HashMap<String, Vec>();
         seznamPostav = new HashMap<String, Postava>();
         this.jeZamceny = jeZamceny;
-        this.x = x;
-        this.y = y;
+    
 
     }
 
     /**
-     * Definuje vĂ˝chod z prostoru (sousednĂ­/vedlejsi prostor). Vzhledem k tomu,
-     * Ĺľe je pouĹľit Set pro uloĹľenĂ­ vĂ˝chodĹŻ, mĹŻĹľe bĂ˝t sousednĂ­ prostor uveden
-     * pouze jednou (tj. nelze mĂ­t dvoje dveĹ™e do stejnĂ© sousednĂ­ mĂ­stnosti).
-     * DruhĂ© zadĂˇnĂ­ stejnĂ©ho prostoru tiĹˇe pĹ™epĂ­Ĺˇe pĹ™edchozĂ­ zadĂˇnĂ­ (neobjevĂ­ se
-     * ĹľĂˇdnĂ© chybovĂ© hlĂˇĹˇenĂ­). Lze zadat tĂ©Ĺľ cestu ze do sebe sama.
+     * Definuje východ z prostoru (sousední/vedlejsi prostor). Vzhledem k tomu,
+     * že je použit Set pro uložení východů, může být sousední prostor uveden
+     * pouze jednou (tj. nelze mít dvoje dveře do stejné sousední místnosti).
+     * Druhé zadání stejného prostoru tiše přepíše předchozí zadání (neobjeví se
+     * žádné chybové hlášení). Lze zadat též cestu ze do sebe sama.
      *
-     * @param vedlejsi prostor, kterĂ˝ sousedi s aktualnim prostorem.
+     * @param vedlejsi prostor, který sousedi s aktualnim prostorem.
      *
      */
+    
     public void setVychod(Prostor vedlejsi) {
         vychody.add(vedlejsi);
     }
 
     /**
-     * Metoda equals pro porovnĂˇnĂ­ dvou prostorĹŻ. PĹ™ekrĂ˝vĂˇ se metoda equals ze
-     * tĹ™Ă­dy Object. Dva prostory jsou shodnĂ©, pokud majĂ­ stejnĂ˝ nĂˇzev. Tato
-     * metoda je dĹŻleĹľitĂˇ z hlediska sprĂˇvnĂ©ho fungovĂˇnĂ­ seznamu vĂ˝chodĹŻ (Set).
+     * Metoda equals pro porovnání dvou prostorů. Překrývá se metoda equals ze
+     * třídy Object. Dva prostory jsou shodné, pokud mají stejný název. Tato
+     * metoda je důležitá z hlediska správného fungování seznamu východů (Set).
      *
-     * BliĹľĹˇĂ­ popis metody equals je u tĹ™Ă­dy Object.
+     * Bližší popis metody equals je u třídy Object.
      *
-     * @param o object, kterĂ˝ se mĂˇ porovnĂˇvat s aktuĂˇlnĂ­m
-     * @return hodnotu true, pokud mĂˇ zadanĂ˝ prostor stejnĂ˝ nĂˇzev, jinak false
-     */  
+     * @param o object, který se má porovnávat s aktuálním
+     * @return hodnotu true, pokud má zadaný prostor stejný název, jinak false
+     */   
     @Override
     public boolean equals(Object obj) {
-        // porovnĂˇvĂˇme zda se nejednĂˇ o dva odkazy na stejnou instanci
         if (this == obj) {
             return true;
         }
-        // porovnĂˇvĂˇme jakĂ©ho typu je parametr 
         if (!(obj instanceof Prostor)) {
             return false;    // pokud parametr nenĂ­ typu Prostor, vrĂˇtĂ­me false
         }
-        // pĹ™etypujeme parametr na typ Prostor 
+       
         Prostor druhy = (Prostor) obj;
 
-        //metoda equals tĹ™Ă­dy java.util.Objects porovnĂˇ hodnoty obou nĂˇzvĹŻ. 
-        //VrĂˇtĂ­ true pro stejnĂ© nĂˇzvy a i v pĹ™Ă­padÄ›, Ĺľe jsou oba nĂˇzvy null,
-        //jinak vrĂˇtĂ­ false.
+        
 
         return (java.util.Objects.equals(this.nazev, druhy.nazev));       
     }
+
 
     /**
      * metoda hashCode vraci ciselny identifikator instance, ktery se pouziva
@@ -112,10 +109,10 @@ public class Prostor {
     }
 
     /**
-     * VracĂ­ nĂˇzev prostoru (byl zadĂˇn pĹ™i vytvĂˇĹ™enĂ­ prostoru jako parametr
+     * Vrací název prostoru (byl zadán při vytváření prostoru jako parametr
      * konstruktoru)
      *
-     * @return nĂˇzev prostoru
+     * @return název prostoru
      */
 
     public String getNazev() {
@@ -123,44 +120,63 @@ public class Prostor {
     }
 
     /**
-     * VracĂ­ "dlouhĂ˝" popis prostoru, kterĂ˝ mĹŻĹľe vypadat nĂˇsledovnÄ›: Jsi v
+     * Vrací "dlouhý" popis prostoru, který může vypadat následovně: Jsi v
      * mistnosti/prostoru vstupni hala budovy VSE na Jiznim meste. vychody:
      * chodba bufet ucebna
      *
-     * @return DlouhĂ˝ popis prostoru
+     * @return Dlouhý popis prostoru
      */
 
     public String dlouhyPopis() {
-        return "Si v miestnosti " + popis + ".\n"
-        + popisVychodu() + "\n" + "veci v miestnosti: " + nazvyVeci() + "\n" + "postavy v miestnosti: " + nazvyPostav();
+        if(nazvyVeci() == "" && nazvyPostav() == "")
+        {return "Si v miestnosti " + popis + ".\n"
+        + popisVychodu(); 
+       }
+       
+        else if(nazvyVeci() == "")
+        {return "Si v miestnosti " + popis + ".\n"
+        + popisVychodu() + "\n" + 
+         "postavy v miestnosti: " + nazvyPostav(); 
+       }
+       
+       else if(nazvyPostav() == "")
+        {return "Si v miestnosti " + popis + ".\n"
+        + popisVychodu() + "\n" + 
+        "veci v miestnosti: " + nazvyVeci();
+       }
+       
+       return "Si v miestnosti " + popis + ".\n"
+        + popisVychodu() + "\n" + 
+        "veci v miestnosti: " + nazvyVeci() + 
+        "\n" + "postavy v miestnosti: " + nazvyPostav(); 
     }
 
     /**
-     * VracĂ­ textovĂ˝ Ĺ™etÄ›zec, kterĂ˝ popisuje sousednĂ­ vĂ˝chody, napĹ™Ă­klad:
+     * Vrací textový řetězec, který popisuje sousední východy, například:
      * "vychody: hala ".
      *
-     * @return Popis vĂ˝chodĹŻ - nĂˇzvĹŻ sousednĂ­ch prostorĹŻ
+     * @return Popis východů - názvů sousedních prostorů
      */
 
     public String popisVychodu() {
-        String vracenyText = "vĂ˝chody:";
+        String vracenyText = "východy:";
         for (Prostor sousedni : vychody) {
             vracenyText += " " + sousedni.getNazev();
             if (sousedni.jeZamceny()) { // ak je priestor zamknutĂ˝, vypiĹˇe sa to pri Ĺ�om
-                vracenyText += "(zamÄŤenĂ˝)";
+                vracenyText += "(zamknutý)";
             }
         }
         return vracenyText;
     }
 
     /**
-     * VracĂ­ prostor, kterĂ˝ sousedĂ­ s aktuĂˇlnĂ­m prostorem a jehoĹľ nĂˇzev je zadĂˇn
-     * jako parametr. Pokud prostor s udanĂ˝m jmĂ©nem nesousedĂ­ s aktuĂˇlnĂ­m
-     * prostorem, vracĂ­ se hodnota null, priestor sa vyhledĂˇvĂˇ v listu prostoru.
+     * Vrací prostor, který sousedí s aktuálním prostorem a jehož název je zadán
+     * jako parametr. Pokud prostor s udaným jménem nesousedí s aktuálním
+     * prostorem, vrací se hodnota null, priestor sa vyhledává v listu prostoru.
      *
-     * @param nazevSouseda JmĂ©no sousednĂ­ho prostoru (vĂ˝chodu)
-     * @return Prostor, kterĂ˝ se nachĂˇzĂ­ za pĹ™Ă­sluĹˇnĂ˝m vĂ˝chodem, nebo hodnota
-     * null, pokud prostor zadanĂ©ho jmĂ©na nenĂ­ sousedem.
+     * @param nazevSouseda Jméno sousedního prostoru (východu)
+     * @return Prostor, který se nachází za příslušným východem, nebo hodnota
+     * null, pokud prostor zadaného jména není sousedem.
      */
 
     public Prostor vratSousedniProstor(String nazevSousedneho) {
@@ -173,13 +189,13 @@ public class Prostor {
     }
 
     /**
-     * VracĂ­ kolekci obsahujĂ­cĂ­ prostory, se kterĂ˝mi tento prostor sousedĂ­.
-     * Takto zĂ­skanĂ˝ seznam sousednĂ­ch prostor nelze upravovat (pĹ™idĂˇvat,
-     * odebĂ­rat vĂ˝chody) protoĹľe z hlediska sprĂˇvnĂ©ho nĂˇvrhu je to plnÄ›
-     * zĂˇleĹľitostĂ­ tĹ™Ă­dy Prostor.
+     * Vrací kolekci obsahující prostory, se kterými tento prostor sousedí.
+     * Takto získaný seznam sousedních prostor nelze upravovat (přidávat,
+     * odebírat východy) protože z hlediska správného návrhu je to plně
+     * záležitostí třídy Prostor.
      *
-     * @return NemodifikovatelnĂˇ kolekce prostorĹŻ (vĂ˝chodĹŻ), se kterĂ˝mi tento
-     * prostor sousedĂ­.
+     * @return Nemodifikovatelná kolekce prostorů (východů), se kterými tento
+     * prostor sousedí.
      */
 
     public Collection<Prostor> getVychody() {
@@ -187,7 +203,7 @@ public class Prostor {
     }
 
     /** 
-     * VypĂ­Ĺˇe nĂˇzvy vÄ›cĂ­
+     * Vypíše názvy věcí
      */
 
     public String nazvyVeci () {
@@ -199,7 +215,7 @@ public class Prostor {
     }
 
     /**
-     * MetĂłda vloĹľĂ­ postavu do priestoru.
+     * Metóda vloží postavu do priestoru.
      */
 
     public void vlozPostavu(Postava postava)
@@ -208,7 +224,7 @@ public class Prostor {
     }
 
     /**
-     * MetĂłda vloĹľĂ­ vec do priestoru.
+     * Metóda vloží vec do priestoru.
      */
 
     public void vlozVec(Vec vec){
@@ -216,19 +232,14 @@ public class Prostor {
     }
 
     /**
-     * MetĂłda vyberie vec z priestoru.
+     * Metóda vyberie vec z priestoru.
      * 
      */
 
     public Vec vyberVec(String jmenoVeci)
     {
         Vec vyberam = null;
-        //for (String nazev : seznamVeci.keySet()){
-           // if (nazev.equals(jmenoVeci) && seznamVeci.get(nazev).jePrenositelna() ) {
-               // vyberam = seznamVeci.get(nazev);
-              //  break;
-           // }
-       // }
+        
         if ((seznamVeci.containsKey(jmenoVeci)) && (seznamVeci.get(jmenoVeci).jePrenositelna() )){
             vyberam = seznamVeci.get(jmenoVeci);
             seznamVeci.remove(jmenoVeci);
@@ -238,7 +249,7 @@ public class Prostor {
     }
 
     /**
-     * MetĂłda, ÄŤi priestor obsahuje vec.
+     * Metóda, či priestor obsahuje vec.
      * 
      */
 
@@ -248,7 +259,7 @@ public class Prostor {
     }
 
     /**
-     * Metoda nĂˇjde postavu.
+     * Metoda nájde postavu.
      */
 
     public Postava najdiPostavu(String jmeno)
@@ -257,7 +268,7 @@ public class Prostor {
     }
 
     /** 
-     * VypĂ­Ĺˇe nĂˇzvy postav v priestore.
+     * Vypíše názvy postav v priestore.
      */
 
     public String nazvyPostav () {
@@ -269,7 +280,7 @@ public class Prostor {
     }
 
     /** 
-     * NĂˇjde vec v priestore.
+     * Nájde vec v priestore.
      */
 
     public Vec najdiVecVProstoru(String jmeno) {
@@ -277,7 +288,7 @@ public class Prostor {
     }
 
     /** 
-     * ÄŚi je priestor zamknutĂ˝
+     * Či je priestor zamknutý
      */
 
     public boolean jeZamceny()
@@ -286,7 +297,7 @@ public class Prostor {
     }
 
     /** 
-     * NastavĂ­, ÄŤi je priestor zamknutĂ˝, alebo nie.
+     * Nastaví, či je priestor zamknutý, alebo nie.
      */
 
     public void setZamceny(boolean value)
@@ -297,19 +308,5 @@ public class Prostor {
     	return Collections.unmodifiableCollection(seznamVeci.values());
     }
     
-    public double getX() {
-		return x;
-	}
-
-	public void setX(double x) {
-		this.x = x;
-	}
-
-	public double getY() {
-		return y;
-	}
-
-	public void setY(double y) {
-		this.y = y;
-	}
+  
 }

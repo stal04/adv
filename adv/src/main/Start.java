@@ -8,18 +8,18 @@ import logika.*;
 import uiText.TextoveRozhrani;
 
 /*******************************************************************************
- * TĹ™Ă­da  Start je hlavnĂ­ tĹ™Ă­dou projektu,
- * kterĂ˝ pĹ™edstavuje jednoduchou textovou adventuru urÄŤenou k dalĹˇĂ­m ĂşpravĂˇm a rozĹˇiĹ™ovĂˇnĂ­
+ * Třída  Start je hlavní třídou projektu,
+ * který představuje jednoduchou textovou adventuru určenou k dalším úpravám a rozšiřování
  *
- * @author    Jarmila PavlĂ­ÄŤkovĂˇ, PavlĂ­ÄŤek
+ * @author    Jarmila Pavlíčková, Pavlíček
  * @version   ZS 2017/2018
  */
 public class Start
 {
-    /***************************************************************************
-     * Metoda, prostĹ™ednictvĂ­m nĂ­Ĺľ se spouĹˇtĂ­ celĂˇ aplikace.
+	/***************************************************************************
+     * Metoda, prostřednictvím níž se spouští celá aplikace.
      *
-     * @param args Parametry pĹ™Ă­kazovĂ©ho Ĺ™Ăˇdku
+     * @param args Parametry příkazového řádku
      */
     public static void main(String[] args)
     {

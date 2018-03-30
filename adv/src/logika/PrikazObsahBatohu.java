@@ -3,10 +3,10 @@
 package logika;
 
 /*******************************************************************************
- * Instance tĹ™Ă­dy PrikazObsahBatohu pĹ™edstavujĂ­ zĂˇkladnĂ© funkcie prĂ­kazu obsah batohu.
+ * Instance třídy PrikazObsahBatohu představují základné funkcie príkazu obsah batohu.
  *
- * @author    Lenka Ĺ ĹĄastnĂˇ
- * @version   ĹˇkolskĂ˝ rok 2017/2018
+ * @author    Lenka Šťastná
+ * @version   školský rok 2017/2018
  */
 public class PrikazObsahBatohu implements IPrikaz
 {
@@ -14,28 +14,28 @@ public class PrikazObsahBatohu implements IPrikaz
     private HerniPlan plan;
 
     /**
-     * KonĹˇtruktor triedy. 
+     * Konštruktor triedy. 
      */
     public PrikazObsahBatohu(HerniPlan plan){
         this.plan=plan;
     }
 
     /**
-     * @param zĂˇvisia na konkrĂ©tnom prĂ­kaze, tu nie sĂş 
+     * @param závisia na konkrétnom príkaze, tu nie sú 
      */
 
     
     public String provedPrikaz(String... parametry){
         if (plan.getBatoh().nazvyVeciVBatohu().isEmpty()) {
-            return "ZatiaÄľ mĂˇm prĂˇzdny batoh.";   // ak  je batoh prĂˇzdny
+            return "Zatiaľ máš prázdny batohu.";   // ak  je batoh prĂˇzdny
         }
         else {
-            return "V batohu mĂˇm " + plan.getBatoh().nazvyVeciVBatohu() + "."; // vypiĹˇe, ÄŤo sa nachĂˇdza v batohu
+            return "V batohu máš " + plan.getBatoh().nazvyVeciVBatohu() + "."; // vypiĹˇe, ÄŤo sa nachĂˇdza v batohu
         }
     }
 
     /**
-     *  Metoda vracĂ­ nĂˇzev pĹ™Ă­kazu (slovo kterĂ© pouĹľĂ­vĂˇ hrĂˇÄŤ pro jeho vyvolĂˇnĂ­)
+     *  Metoda vrací název příkazu (slovo které používá hráč pro jeho vyvolání)
      *  
      *  @return nazev prikazu
      */

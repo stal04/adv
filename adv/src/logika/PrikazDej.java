@@ -5,10 +5,10 @@ package logika;
 import java.util.Set;
 import java.util.HashSet;
 /*******************************************************************************
- * Instance tĹ™Ă­dy PrikazDej pĹ™edstavujĂ­ darovanie.
+ * Instance třídy PrikazDej představují darovanie.
  *
- * @author    Lenka Ĺ ĹĄastnĂˇ
- * @version   ĹˇkolskĂ˝ rok 2017/2018
+ * @author    Lenka Šťastná
+ * @version   školský rok 2017/2018
  */
 public class PrikazDej implements IPrikaz
 {
@@ -21,7 +21,7 @@ public class PrikazDej implements IPrikaz
     private Set<Prostor> vychody;
 
     /**
-     * konĹˇtruktor
+     * konštruktor
      */
 
     public PrikazDej(HerniPlan plan, Batoh batoh) {
@@ -34,14 +34,14 @@ public class PrikazDej implements IPrikaz
     }
 
     /**
-     *  @parametre zĂˇvisia na prĂ­kaze, pouĹľĂ­vam 2, ÄŤo a komu daĹĄ, ÄŤiĹľe vec a postavu
-     *  @return vrĂˇti String podla podmienky.
+     *  @parametre závisia na príkaze, používam 2, čo a komu dať, čiže vec a postavu
+     *  @return vráti String podla podmienky.
      */
 
-   
+    @Override  
     public String provedPrikaz(String... parametry){
         if (parametry.length < 2 || parametry.length >3 ) {  //zle zadanĂ˝ prĂ­kaz
-            return "Zadaj prĂ­kaz v tvare - dej nieÄŤo niekomu.";
+            return "Zadaj príkaz v tvare - dej niečo niekomu.";
         }
         else{
             Prostor aktualniProstor = plan.getAktualniProstor();
@@ -51,14 +51,14 @@ public class PrikazDej implements IPrikaz
                 batoh.vyberVecZBatohu("diamant");
                 plan.getAktualniProstor().vlozVec(new Vec("lektvar",true));
                 plan.getAktualniProstor().vlozVec(new Vec("diamant",false));
-                return "ÄŽakujem za diamant, na oplĂˇtku ti dĂˇm lektvar, ktorĂ˝m mĂ´ĹľeĹˇ uspaĹĄ strĂˇĹľcov draka, informĂˇcia, kde sa nachĂˇdza drak je na radnici." + '\n' +"veci v miestnosti: " + plan.getAktualniProstor().nazvyVeci();
+                return "Ďakujem za diamant, na oplátku ti dám lektvar, ktorým môžeš uspať strážcov draka, informácia, kde sa nachádza drak je na radnici." + '\n' +"veci v miestnosti: " + plan.getAktualniProstor().nazvyVeci();
             }
 
             if (plan.nazevProstoru().equals("hospoda") && batoh.obsahujeVecBatoh("recept") && parametry[0].equals("recept") && parametry[1].equals("krcmar") ){      //po predanĂ­ receptu nĂˇm dĂˇ mapu                             
                 batoh.vyberVecZBatohu("recept");
                 plan.getAktualniProstor().vlozVec(new Vec("mapa",true));
                 plan.getAktualniProstor().vlozVec(new Vec("recept",false));
-                return "ÄŽakujem za recept na pivo, pokraÄŤuj k vedcovi, on ti poradĂ­ ÄŹalej. Tu mĂˇĹˇ mapu, aby si trafil." + '\n' +"veci v miestnosti: " + plan.getAktualniProstor().nazvyVeci();
+                return "Ďakujem za recept na pivo, pokračuj k vedcovi, on ti poradí ďalej. Tu máš mapu, aby si trafil." + '\n' +"veci v miestnosti: " + plan.getAktualniProstor().nazvyVeci();
             }
         }
 
@@ -66,19 +66,19 @@ public class PrikazDej implements IPrikaz
             batoh.vyberVecZBatohu("lektvar");
             plan.getAktualniProstor().vlozVec(new Vec("drak",true));
 
-            return "Uspal si strĂˇĹľcov, zober draka a odovzdaj ho krĂˇÄľovi." + '\n' +"veci v miestnosti: " + plan.getAktualniProstor().nazvyVeci();
+            return "Uspal si strážcov, zober draka a odovzdaj ho kráľovi." + '\n' +"veci v miestnosti: " + plan.getAktualniProstor().nazvyVeci();
 
         }
-        return "NiÄŤ sa nestalo, nikomu si niÄŤ nedal.";
+        return "Nič sa nestalo, nikomu si nič nedal.";
     }
 
     /**
-     *  Metoda vracĂ­ nĂˇzev pĹ™Ă­kazu (slovo kterĂ© pouĹľĂ­vĂˇ hrĂˇÄŤ pro jeho vyvolĂˇnĂ­)
+     *  Metoda vrací název příkazu (slovo které používá hráč pro jeho vyvolání)
      *  
      *  @return nazev prikazu
      */
 
-    
+    @Override
     public String getNazev(){
         return NAZEV;
     }

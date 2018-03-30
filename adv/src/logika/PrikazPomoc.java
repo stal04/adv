@@ -3,21 +3,19 @@
 package logika;
 
 /*******************************************************************************
- * Instance tĹ™Ă­dy PrikazPomoc pĹ™edstavujĂ­ pomoc.
+ * Instance třídy PrikazPomoc představují pomoc.
  *
- * @author    Lenka Ĺ ĹĄastnĂˇ
- * @version   ĹˇkolskĂ˝ rok 2017/2018
+ * @author    Lenka Šťastná
+ * @version   školský rok 2017/2018
  */
 public class PrikazPomoc implements IPrikaz
 {
-    //== DatovĂ© atributy (statickĂ© i instancĂ­)======================================
-
-    //== Konstruktory a tovĂˇrnĂ­ metody =============================================
+    
     private static final String NAZEV = "pomoc";
     private HerniPlan plan;
 
     /**
-     *  KonĹˇtruktor triedy. 
+     *  Konštruktor triedy. 
      */    
     public PrikazPomoc(HerniPlan plan) {
         this.plan = plan;
@@ -31,33 +29,34 @@ public class PrikazPomoc implements IPrikaz
     
     public String provedPrikaz(String... parametry) { // v kaĹľdej miesnosti vracia konkrĂ©tnu pomoc
         if(plan.nazevProstoru().equals("kralovstvi")) {
-            return "CieÄľom je priniesĹĄ draka. ZaÄŤni v hospode";
+            return "Cieľom je priniesť draka. Začni v hospode.";
         }
         if (plan.nazevProstoru().equals("hospoda")) {
-            return "PorozprĂˇvaj sa s krÄŤmĂˇrom, on ti povie, ÄŤo chce za vĂ˝menu informĂˇciĂ­.";
+            return "Porozprávaj sa s krčmárom, on ti povie, čo chce za výmenu informácií.";
         }
         if (plan.nazevProstoru().equals("knihovna")) {
-            return "SĂş tam nejakĂ© zaujĂ­mavĂ© veci na zobratie?";
+            return "Sú tam nejaké zaujímavé veci na zobratie?";
         }
         if (plan.nazevProstoru().equals("vedec")) {
-            return "PorozprĂˇvaj sa s vedcom, on ti poradĂ­.";
+            return "Porozprávaj sa s vedcom, on ti poradí.";
         }
         if (plan.nazevProstoru().equals("carodej")) {
-            return "PorozprĂˇvaj sa s ÄŤarodejom, on ti povie, ÄŤo chce.";
+            return "Porozprávaj sa s čarodejom, on ti povie, čo chce.";
         }
         if (plan.nazevProstoru().equals("radnice")) {
-            return "NaĹˇla si na radnici nejakĂş zaujĂ­mavĂş informĂˇciu?";
+            return "Našla si na radnici nejakú zaujímavú informáciu?";
         }
         else {
-            return "PouĹľi lektvar a osloboÄŹ draka.";
+            return "Použi lektvar a osloboď draka.";
         }
     }
 
     /**
-     *  Metoda vracĂ­ nĂˇzev pĹ™Ă­kazu (slovo kterĂ© pouĹľĂ­vĂˇ hrĂˇÄŤ pro jeho vyvolĂˇnĂ­)
+     *  Metoda vrací název příkazu (slovo které používá hráč pro jeho vyvolání)
      *  
      *  @ return nazev prikazu
      */
+    @Override
     
     public String getNazev() {
         return NAZEV;

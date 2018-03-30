@@ -4,10 +4,10 @@ package logika;
 
 
 /*******************************************************************************
- * Instance tĹ™Ă­dy Mluv pĹ™edstavujĂ­ ...
+ * Instance třídy Mluv představují ...
  *
- * @author    Lenka Ĺ ĹĄastnĂˇ
- * @version   ĹˇkolskĂ˝ rok 2017/2018
+ * @author    Lenka Šťastná
+ * @version   školský rok 2017/2018
  */
 public class PrikazMluv implements IPrikaz
 {
@@ -15,31 +15,31 @@ public class PrikazMluv implements IPrikaz
     private static final String NAZEV = "mluv";
 
     /**
-     * KonĹˇtruktor triedy.
+     * Konštruktor triedy.
      *
-     */ 
+     */
     public PrikazMluv(HerniPlan plan)
     {
         this.plan = plan;
     }
 
     /**
-     *  PrĂ­kaz mluv. VĹˇetky postavy v hre vedia hovoriĹĄ a pomĂ´Ĺľu k vĂ˝hre.
+     *  Príkaz mluv. Všetky postavy v hre vedia hovoriť a posúvajú v hre.
      *  @param - meno postavy
-     *  @return - reÄŤ postavy
+     *  @return - reč postavy
      *
      */ 
 
-   
+    @Override
     public String provedPrikaz(String... parametry) {
         if (parametry.length == 0) {
-            return "Nezadal si s ktorou postavou chceĹˇ hovoriĹĄ.";
+            return "Nezadal si s ktorou postavou chceš hovoriť.";
         }
         String jmeno = parametry[0];
         Prostor aktualniProstor = plan.getAktualniProstor();
         Postava postava = aktualniProstor.najdiPostavu(jmeno);
         if (postava == null) {
-            return "Postava sa nenachĂˇdza v tomto priestore.";
+            return "Postava sa nenachádza v tomto priestore.";
         }
         if (postava.getJmeno().contains("carodej")) {
             return postava.getRec();
@@ -54,16 +54,16 @@ public class PrikazMluv implements IPrikaz
             return postava.getRec();
         }
 
-        return "Postava neexistuje, alebo sa s Ĺ�ou nedĂˇ rozprĂˇvaĹĄ.";
+        return "Postava neexistuje, alebo sa s ňou nedá rozprávať.";
 
     }
 
     /**
-     *  Metoda vracĂ­ nĂˇzev pĹ™Ă­kazu (slovo kterĂ© pouĹľĂ­vĂˇ hrĂˇÄŤ pro jeho vyvolĂˇnĂ­
+     *  Metoda vrací název příkazu (slovo které používá hráč pro jeho vyvolání
      *  
      *  @ return nazev prikazu
      */
-    
+    @Override   
     public String getNazev() {
         return NAZEV;
     }

@@ -3,9 +3,9 @@
 package logika;
 
 /*******************************************************************************
- * Instance tĹ™Ă­dy PrikazSeber pĹ™edstavujĂ­ zobratie.
+ * Instance třídy PrikazSeber představují zobratie.
  *
- * @author    Lenka Ĺ ĹĄastnĂˇ
+ * @author    Lenka Šťastná
  * @version   0.00.000
  */
 public class PrikazSeber implements IPrikaz
@@ -15,7 +15,7 @@ public class PrikazSeber implements IPrikaz
     private Batoh batoh;
 
     /**
-     * konĹˇtruktor
+     * konštruktor
      */
     public PrikazSeber(HerniPlan plan){
         this.plan = plan;
@@ -23,12 +23,12 @@ public class PrikazSeber implements IPrikaz
     }
 
     /**
-     *  @parametre podÄľa prĂ­kazu, tu konkrĂ©tne je to string, akĂş vec mĂˇ zobraĹĄ
+     *  @parametre podľa príkazu, tu konkrétne je to string, akú vec má zobrať
      */
    
     public String provedPrikaz(String... parametry){
         if (parametry.length == 0) {
-            return "Zadaj prĂ­kaz v tvare seber vec."; //chĂ˝ba, ÄŤo treba zobraĹĄ
+            return "Zadaj príkaz v tvare seber vec."; //chĂ˝ba, ÄŤo treba zobraĹĄ
         }
 
         String nazevVeci = parametry[0];
@@ -37,24 +37,24 @@ public class PrikazSeber implements IPrikaz
         if (aktualniProstor.obsahujeVec(nazevVeci)){ // ÄŤi vĂ´bec priestor obsahuje vec
             Vec vec = aktualniProstor.vyberVec(nazevVeci);
             if (vec == null) {  // ak obsahuje, ale pri vĂ˝bere je nulovĂˇ, nie je prenosnĂˇ
-                return "TĂˇto vec je neprenosnĂˇ, nemĂ´ĹľeĹˇ si ju zobraĹĄ.";
+                return "Táto vec je neprenosná, nemôžeš si ju zobrať.";
             } else {
                 if ( batoh.vlozVecDoBatohu(vec)) { // dal si si vec do batohu
-                    return "Zobral si "+ vec.getJmeno() + "." + "\nVec "+nazevVeci+" je vloĹľenĂˇ do batohu."; 
+                    return "Zobral si "+ vec.getJmeno() + "." + "\nVec "+nazevVeci+" je vložená do batohu."; 
                 }            
                 else {
                     aktualniProstor.vlozVec(vec);  //nedĂˇĹˇ doĹ�ho ÄŹalĹˇiu vec                                 
-                    return "MĂˇĹˇ plnĂ˝ batoh.";
+                    return "Máš plný batoh.";
                 }
             }
         }
         else {
-            return "Nic takovĂ©ho tu nenĂ­."; // priestor neobsahuje vec
+            return "Nič také tu neni."; // priestor neobsahuje vec
         }
     }
 
     /**
-     *  Metoda vracĂ­ nĂˇzev pĹ™Ă­kazu (slovo kterĂ© pouĹľĂ­vĂˇ hrĂˇÄŤ pro jeho vyvolĂˇnĂ­)
+     *  Metoda vrací název příkazu (slovo které používá hráč pro jeho vyvolání)
      *  
      *  @return nazev prikazu
      */

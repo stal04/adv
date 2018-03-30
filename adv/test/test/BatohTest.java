@@ -11,9 +11,9 @@ import logika.*;
 import static org.junit.Assert.*;
 
 /*******************************************************************************
- * TestovacĂ­ tĹ™Ă­da BatohTest slouĹľĂ­ ke komplexnĂ­mu otestovĂˇnĂ­ tĹ™Ă­dy ... 
+ * Testovací třída BatohTest slouží ke komplexnímu otestování třídy ... 
  *
- * @author    jmĂ©no autora
+ * @author    jméno autora
  * @version   0.00.000
  */
 public class BatohTest
@@ -21,9 +21,9 @@ public class BatohTest
     //== KONSTRUKTORY A TOVĂ�RNĂŤ METODY =========================================
     //-- TestovacĂ­ tĹ™Ă­da vystaÄŤĂ­ s prĂˇzdnĂ˝m implicitnĂ­m konstruktorem ----------
 
-    /***************************************************************************
-     * Inicializace pĹ™edchĂˇzejĂ­cĂ­ spuĹˇtÄ›nĂ­ kaĹľdĂ©ho testu a pĹ™ipravujĂ­cĂ­ tzv.
-     * pĹ™Ă­pravek (fixture), coĹľ je sada objektĹŻ, s nimiĹľ budou testy pracovat.
+	 /***************************************************************************
+     * Inicializace předcházející spuštění každého testu a připravující tzv.
+     * přípravek (fixture), což je sada objektů, s nimiž budou testy pracovat.
      */
     @Before
     public void setUp()    {
@@ -31,7 +31,7 @@ public class BatohTest
     }
 
     /***************************************************************************
-     * Ăšklid po testu - tato metoda se spustĂ­ po vykonĂˇnĂ­ kaĹľdĂ©ho testu.
+     * Úklid po testu - tato metoda se spustí po vykonání každého testu.
      */
     @After
     public void tearDown()

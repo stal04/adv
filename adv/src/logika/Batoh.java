@@ -6,10 +6,10 @@ import java.util.Map;
 import java.util.HashMap;
 
 /*******************************************************************************
- * Instance tĹ™Ă­dy Batoh pĹ™edstavujĂ­ ...
+ * Instance třídy Batoh představují ...
  *
- * @author    Lenka Ĺ ĹĄastnĂˇ
- * @version   ĹˇkolskĂ˝ rok 2017/2018
+ * @author    Lenka Šťastná
+ * @version   školský rok 2017/2018
  */
 public class Batoh
 {
@@ -17,15 +17,15 @@ public class Batoh
     private Map<String, Vec> seznamVeci; //Mapa vecĂ­, kÄľĂşÄŤ a priradenĂ© veci
 
     /**
-     * konĹˇtruktor
+     * konštruktor
      */
     public Batoh(){
         seznamVeci = new HashMap<String, Vec>();
     }
 
     /**
-     * VloĹľĂ­ do batohu ak vojde
-     * @return true ak sa vloĹľĂ­, false, ak sa nevloĹľila
+     * Vloží do batohu ak vojde
+     * @return true ak sa vloží, false, ak sa nevložila
      * @param objekt triedy Vec
      */
     public boolean vlozVecDoBatohu (Vec vec) {
@@ -37,8 +37,8 @@ public class Batoh
     }
 
     /**
-     * ÄŚi sa v batohu nachĂˇdza vec.
-     * @return true alebo false, podÄľa toho, ÄŤi sa vec v batohu nachĂˇdza.
+     * Či sa v batohu nachádza vec.
+     * @return true alebo false, podľa toho, či sa vec v batohu nachádza.
      */
     public boolean obsahujeVecBatoh (String jmenoVeci) {
         return seznamVeci.containsKey(jmenoVeci);
@@ -47,7 +47,7 @@ public class Batoh
     /**
      * Vyberie vec z batohu.
      * @return vec, alebo ak neni v batohu tak null.
-     * @param String pri zadanĂ­, ÄŤo sa mĂˇ vybraĹĄ.
+     * @param String pri zadaní, čo sa má vybrať.
      */
     public Vec vyberVecZBatohu (String jmenoVeci) {
         Vec nalezenaVec;
@@ -60,8 +60,8 @@ public class Batoh
     }
 
     /**
-     * VypĂ­Ĺˇe veci, ktorĂ© sĂş v batohu.
-     * @return nĂˇzvy vecĂ­
+     * Vypíše veci, ktoré sú v batohu.
+     * @return názvy vecí
      */
     public String nazvyVeciVBatohu() {
         String nazvy = "";
@@ -73,7 +73,7 @@ public class Batoh
     }
 
     /**
-     * VypĂ­Ĺˇe kapacitu batohu
+     * Vypíše kapacitu batohu
      */
     public int getKapacitaBatohu() {
         return KAPACITA;

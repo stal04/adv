@@ -5,51 +5,51 @@ package logika;
 
 
 /**
- *  RozhranĂ­ kterĂ© musĂ­ implementovat hra, je na nÄ› navĂˇzĂˇno uĹľivatelskĂ© rozhranĂ­
+ *  Rozhraní které musí implementovat hra, je na ně navázáno uživatelské rozhraní
  *
  *@author     Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova
- *@version    pro ĹˇkolnĂ­ rok 2017/2018
+ *@version    pro školní rok 2017/2018
  */
 public interface IHra
 {
-    //== VEĹ�EJNĂ‰ KONSTANTY =====================================================
-    //== DEKLAROVANĂ‰ METODY ====================================================
-    /**
-     *  VrĂˇtĂ­ ĂşvodnĂ­ zprĂˇvu pro hrĂˇÄŤe.
+    
+	/**
+     *  Vrátí úvodní zprávu pro hráče.
      *  
-     *  @return  vracĂ­ se Ĺ™etÄ›zec, kterĂ˝ se mĂˇ vypsat na obrazovku
+     *  @return  vrací se řetězec, který se má vypsat na obrazovku
      */
     public String vratUvitani();
 
     /**
-     *  VrĂˇtĂ­ zĂˇvÄ›reÄŤnou zprĂˇvu pro hrĂˇÄŤe.
+     *  Vrátí závěrečnou zprávu pro hráče.
      *  
-     *  @return  vracĂ­ se Ĺ™etÄ›zec, kterĂ˝ se mĂˇ vypsat na obrazovku
+     *  @return  vrací se řetězec, který se má vypsat na obrazovku
      */
     public String vratEpilog();
 
     /** 
-     * VracĂ­ informaci o tom, zda hra jiĹľ skonÄŤila, je jedno zda vĂ˝hrou, prohrou nebo pĹ™Ă­kazem konec.
+     * Vrací informaci o tom, zda hra již skončila, je jedno zda výhrou, prohrou nebo příkazem konec.
      * 
-     * @return   vracĂ­ true, pokud hra skonÄŤila
+     * @return   vrací true, pokud hra skončila
      */
     public boolean konecHry();
 
+
     /**
-     *  Metoda zpracuje Ĺ™etÄ›zec uvedenĂ˝ jako parametr, rozdÄ›lĂ­ ho na slovo pĹ™Ă­kazu a dalĹˇĂ­ parametry.
-     *  Pak otestuje zda pĹ™Ă­kaz je klĂ­ÄŤovĂ˝m slovem  napĹ™. jdi.
-     *  Pokud ano spustĂ­ samotnĂ© provĂˇdÄ›nĂ­ pĹ™Ă­kazu.
+     *  Metoda zpracuje řetězec uvedený jako parametr, rozdělí ho na slovo příkazu a další parametry.
+     *  Pak otestuje zda příkaz je klíčovým slovem  např. jdi.
+     *  Pokud ano spustí samotné provádění příkazu.
      *
-     *@param  radek  text, kterĂ˝ zadal uĹľivatel jako pĹ™Ă­kaz do hry.
-     *@return          vracĂ­ se Ĺ™etÄ›zec, kterĂ˝ se mĂˇ vypsat na obrazovku
+     *@param  radek  text, který zadal uživatel jako příkaz do hry.
+     *@return          vrací se řetězec, který se má vypsat na obrazovku
      */
     public String zpracujPrikaz(String radek);
 
     /**
-     *  Metoda vrĂˇtĂ­ odkaz na hernĂ­ plĂˇn, je vyuĹľita hlavnÄ› v testech,
-     *  kde se jejĂ­m prostĹ™ednictvĂ­m zĂ­skĂˇvĂˇ aktualnĂ­ mĂ­stnost hry.
+     *  Metoda vrátí odkaz na herní plán, je využita hlavně v testech,
+     *  kde se jejím prostřednictvím získává aktualní místnost hry.
      *  
-     *  @return     odkaz na hernĂ­ plĂˇn
+     *  @return     odkaz na herní plán
      */
     public HerniPlan getHerniPlan();
 

@@ -4,10 +4,10 @@ package logika;
 
 
 /*******************************************************************************
- * Instance tĹ™Ă­dy Postava pĹ™edstavujĂ­ ...
+ * Instance třídy Postava představují ...
  *
- * @author    Lenka Ĺ ĹĄastnĂˇ
- * @version   ĹˇkolskĂ˝ rok 2017/2018
+ * @author    Lenka Šťastná
+ * @version   školský rok 2017/2018
  */
 public class Postava
 {
@@ -15,7 +15,7 @@ public class Postava
     private String rec;
 
     /***************************************************************************
-     * KonĹˇtruktor nastavĂ­ meno a reÄŤ postĂˇv
+     * Konštruktor nastaví meno a reč postáv
      */
     public Postava(String jmeno, String rec)
     {
@@ -33,10 +33,11 @@ public class Postava
     }
 
     /**
-     * Metoda vracia reÄŤ postavy.
+     * Metoda vracia reč postavy.
      * 
-     * @return   String reÄŤ
+     * @return   String reč
      */
+    
     public String getRec() {
         return rec; 
     }

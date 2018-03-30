@@ -3,10 +3,10 @@
 package logika;
 
 /*******************************************************************************
- * Instance tĹ™Ă­dy Vec pĹ™edstavujĂ­ ...
+ * Instance třídy Vec představují ...
  *
- * @author    Lenka Ĺ ĹĄastnĂˇ
- * @version   ĹˇkolskĂ˝ rok 2017/2018
+ * @author    Lenka Šťastná
+ * @version   školský rok 2017/2018
  */
 public class Vec
 {
@@ -30,7 +30,7 @@ public class Vec
     }
 
     /**
-     * @return vracia, ÄŤi je vec prenositeÄľnĂˇ, zobrateÄľnĂˇ
+     * @return vracia, či je vec prenositeľná, zobrateľná
      */
     public boolean jePrenositelna() {
         return prenositelna;
