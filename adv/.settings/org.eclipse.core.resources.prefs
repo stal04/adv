@@ -1,0 +1,17 @@
+eclipse.preferences.version=1
+encoding//src/logika/Batoh.java=UTF-8
+encoding//src/logika/IHra.java=UTF-8
+encoding//src/logika/Postava.java=UTF-8
+encoding//src/logika/PrikazDej.java=UTF-8
+encoding//src/logika/PrikazMluv.java=UTF-8
+encoding//src/logika/PrikazObsahBatohu.java=UTF-8
+encoding//src/logika/PrikazPomoc.java=UTF-8
+encoding//src/logika/PrikazResRovnici.java=UTF-8
+encoding//src/logika/PrikazSeber.java=UTF-8
+encoding//src/logika/Prostor.java=UTF-8
+encoding//src/logika/SeznamPrikazu.java=UTF-8
+encoding//src/logika/Vec.java=UTF-8
+encoding//src/main/Start.java=UTF-8
+encoding//test/test/BatohTest.java=UTF-8
+encoding//test/test/PostavaTest.java=UTF-8
+encoding//test/test/VecTest.java=UTF-8
