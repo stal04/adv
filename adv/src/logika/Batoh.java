@@ -13,8 +13,8 @@ import java.util.HashMap;
  */
 public class Batoh
 {
-    private static final int KAPACITA = 4; //maximĂˇlna kapacita
-    private Map<String, Vec> seznamVeci; //Mapa vecĂ­, kÄľĂşÄŤ a priradenĂ© veci
+    private static final int KAPACITA = 4; //maximílna kapacita
+    private Map<String, Vec> seznamVeci; 
 
     /**
      * konštruktor
