@@ -1,6 +1,10 @@
 package uiText;
 
-
+/*
+ *
+ * @author Lenka Šťastná, Filip Vencovský
+ * @version pro školní rok 2017/2018
+ */
 
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

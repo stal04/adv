@@ -36,7 +36,7 @@ public void start(Stage primaryStage) throws Exception {
     Parent root = loader.load();
     HomeController c = loader.getController();
     
-    primaryStage.setTitle("Adventúra Dračie kráľovstvo");
+    primaryStage.setTitle("Adventúra Dračie kráľovstvoo");
     primaryStage.setScene(new Scene(root));
     primaryStage.show();
 }

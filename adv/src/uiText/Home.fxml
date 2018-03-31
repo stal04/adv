@@ -33,7 +33,7 @@
           </image>
         </ImageView>
         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="30.0" layoutY="67.0" pickOnBounds="true" preserveRatio="true" />
-        <ImageView id="post.sh.png" fitHeight="68.0" fitWidth="71.0" layoutX="39.0" layoutY="142.0">
+        <ImageView id="post.sh.png" fx:id="uzivatel" fitHeight="54.00000762939453" fitWidth="51.9998779296875" layoutX="51.0" layoutY="149.0">
           <image>
             <Image url="@post.sh.png" preserveRatio="true" smooth="true" />
           </image>
