@@ -30,7 +30,7 @@ public class PrikazObsahBatohu implements IPrikaz
             return "Zatiaľ máš prázdny batohu.";   // ak  je batoh prĂˇzdny
         }
         else {
-            return "V batohu máš " + plan.getBatoh().nazvyVeciVBatohu() + "."; // vypiĹˇe, ÄŤo sa nachĂˇdza v batohu
+            return "V batohu máš " + plan.getBatoh().nazvyVeciVBatohu() + "."; 
         }
     }
 

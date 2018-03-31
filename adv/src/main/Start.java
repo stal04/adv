@@ -1,7 +1,7 @@
 /* Soubor je ulozen v kodovani UTF-8.
  * Kontrola kĂłdovĂˇnĂ­: PĹ™Ă­liĹˇ ĹľluĹĄouÄŤkĂ˝ kĹŻĹ� ĂşpÄ›l ÄŹĂˇbelskĂ© Ăłdy. */
 package main;
-import java.io.IOException;
+
 
 
 import logika.*;

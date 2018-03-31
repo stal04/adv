@@ -28,22 +28,22 @@ public class PrikazSeber implements IPrikaz
    
     public String provedPrikaz(String... parametry){
         if (parametry.length == 0) {
-            return "Zadaj príkaz v tvare seber vec."; //chĂ˝ba, ÄŤo treba zobraĹĄ
+            return "Zadaj príkaz v tvare seber vec."; 
         }
 
         String nazevVeci = parametry[0];
         Prostor aktualniProstor = plan.getAktualniProstor();
         
-        if (aktualniProstor.obsahujeVec(nazevVeci)){ // ÄŤi vĂ´bec priestor obsahuje vec
+        if (aktualniProstor.obsahujeVec(nazevVeci)){ // či vôbec priestor obsahuje vec
             Vec vec = aktualniProstor.vyberVec(nazevVeci);
-            if (vec == null) {  // ak obsahuje, ale pri vĂ˝bere je nulovĂˇ, nie je prenosnĂˇ
+            if (vec == null) {  // ak obsahuje, ale pri výbere je nulová, nie je prenosná
                 return "Táto vec je neprenosná, nemôžeš si ju zobrať.";
             } else {
                 if ( batoh.vlozVecDoBatohu(vec)) { // dal si si vec do batohu
                     return "Zobral si "+ vec.getJmeno() + "." + "\nVec "+nazevVeci+" je vložená do batohu."; 
                 }            
                 else {
-                    aktualniProstor.vlozVec(vec);  //nedĂˇĹˇ doĹ�ho ÄŹalĹˇiu vec                                 
+                    aktualniProstor.vlozVec(vec);                                  
                     return "Máš plný batoh.";
                 }
             }

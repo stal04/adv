@@ -30,14 +30,14 @@ public class PrikazResRovnici implements IPrikaz
     
     public String provedPrikaz(String... parametry){
         if (parametry.length == 0) {
-            return "Zadaj príkaz v tvare res_rovnici cislo."; //zle zadanĂ˝ prĂ­kaz
+            return "Zadaj príkaz v tvare res_rovnici cislo."; //zle zadaný príkaz
         }
 
-        if(plan.getAktualniProstor().getNazev().equals("vedec")) { //odpovedaĹĄ mĂ´ĹľeĹˇ len u vedca
+        if(plan.getAktualniProstor().getNazev().equals("vedec")) { 
             while(plan.getPokus() <2){ // mĂˇĹˇ 3 pokusy
-                if((parametry[0].equals("3") || parametry[0].equals("tri"))){   //vĂ˝sledok rovnice mĂ´ĹľeĹˇ zadaĹĄ ako ÄŤĂ­slo aj ako slovo          
+                if((parametry[0].equals("3") || parametry[0].equals("tri"))){            
 
-                    plan.getAktualniProstor().vlozVec(new Vec("diamant", true)); //ak uhĂˇdneĹˇ, mĂ´ĹľeĹˇ si vziaĹĄ diamant
+                    plan.getAktualniProstor().vlozVec(new Vec("diamant", true)); 
                     return "Správne, pokračuj k čarodejovi. \nveci v miesnoti: " + plan.getAktualniProstor().nazvyVeci();
                 } 
 

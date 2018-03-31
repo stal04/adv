@@ -27,7 +27,7 @@ public class PrikazPomoc implements IPrikaz
      *  @return napoveda ke hre
      */
     
-    public String provedPrikaz(String... parametry) { // v kaĹľdej miesnosti vracia konkrĂ©tnu pomoc
+    public String provedPrikaz(String... parametry) { 
         if(plan.nazevProstoru().equals("kralovstvi")) {
             return "Cieľom je priniesť draka. Začni v hospode.";
         }

@@ -27,10 +27,10 @@ public class Prostor {
 
     private String nazev;
     private String popis;
-    private Set<Prostor> vychody;   // susednĂ© miestnosti
+    private Set<Prostor> vychody;   // susedné miestnosti
     private Map<String, Vec> seznamVeci; // veci v miestnosti
     private Map<String, Postava> seznamPostav; // postavy v miestnosti
-    private boolean jeZamceny = false; // inicializĂˇcia zamknutĂ˝ch priestorov
+    private boolean jeZamceny = false; 
   
     /**
      * Vytvoření prostoru se zadaným popisem, např. "kuchyň", "hala", "trávník
@@ -82,7 +82,7 @@ public class Prostor {
             return true;
         }
         if (!(obj instanceof Prostor)) {
-            return false;    // pokud parametr nenĂ­ typu Prostor, vrĂˇtĂ­me false
+            return false;   
         }
        
         Prostor druhy = (Prostor) obj;
@@ -162,7 +162,7 @@ public class Prostor {
         String vracenyText = "východy:";
         for (Prostor sousedni : vychody) {
             vracenyText += " " + sousedni.getNazev();
-            if (sousedni.jeZamceny()) { // ak je priestor zamknutĂ˝, vypiĹˇe sa to pri Ĺ�om
+            if (sousedni.jeZamceny()) { 
                 vracenyText += "(zamknutý)";
             }
         }
