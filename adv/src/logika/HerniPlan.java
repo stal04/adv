@@ -22,7 +22,7 @@ public class HerniPlan extends Observable{
     private int pokus = 0; //číslo pokusu
 
     private Vec vec;
-    private boolean vyhra = false; //inicializacia 
+    private boolean vyhra = false; //inicializácia
     private boolean prohra = false; //inicializacia
 
     /**
