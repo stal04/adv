@@ -26,9 +26,15 @@ public static void main(String[] args) {
 
 @Override
 public void start(Stage primaryStage) throws Exception {
-    Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+    //Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
     
    
+    FXMLLoader loader = new FXMLLoader();
+    loader.setLocation(getClass()
+    		.getResource("Home.fxml"));
+    
+    Parent root = loader.load();
+    HomeController c = loader.getController();
     
     primaryStage.setTitle("Adventúra Dračie kráľovstvo");
     primaryStage.setScene(new Scene(root));
