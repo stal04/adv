@@ -43,7 +43,7 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<mainClass>
-	main.Start</mainClass>
+	uiText.Application</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
