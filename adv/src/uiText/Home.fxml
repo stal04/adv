@@ -26,12 +26,12 @@
     </MenuBar>
     <AnchorPane layoutX="24.0" layoutY="46.0" minHeight="284.0" minWidth="350.0" prefHeight="318.0" prefWidth="350.0">
       <children>
-        <ImageView id="mapa.png" fitHeight="318.0" fitWidth="356.0" layoutX="-3.0" layoutY="0.0">
+        <ImageView id="mapa.png" fx:id="mapa" fitHeight="318.0" fitWidth="356.0" layoutX="-3.0" layoutY="0.0">
           <image>
             <Image url="@mapa.png" preserveRatio="true" smooth="true" />
           </image>
         </ImageView>
-        <ImageView  fx:id="uzivatel" fitHeight="54.00000762939453" fitWidth="51.9998779296875" layoutX="104.0" layoutY="233.0">
+        <ImageView fx:id="uzivatel" fitHeight="54.00000762939453" fitWidth="51.9998779296875" layoutX="104.0" layoutY="233.0">
           <image>
             <Image url="@post.sh.png" preserveRatio="true" smooth="true" />
           </image>
