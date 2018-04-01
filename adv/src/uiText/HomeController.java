@@ -1,5 +1,8 @@
 package uiText;
 
+import java.util.Observable;
+import java.util.Observer;
+
 /*
  *
  * @author Lenka Šťastná, Filip Vencovský
@@ -18,7 +21,7 @@ import logika.Vec;
 import logika.Hra;
 
 
-public class HomeController extends AnchorPane{
+public class HomeController extends AnchorPane implements Observer{
 	
 	@FXML private TextArea vystup;
 	@FXML private TextField vstupniText;
@@ -28,9 +31,36 @@ public class HomeController extends AnchorPane{
 
 	@FXML public void odeslaniPrikazu() {
 		String radek = vstupniText.getText();
-		String odpoved = hra.zpracujPrikaz(radek);
-		vystup.setText(odpoved);
+		String odpoved = 
+				hra.zpracujPrikaz(radek);
+		
+		
+		vystup.appendText("\n----------\n"+vstupniText.getText()+"\n----------\n");
+		vystup.appendText(odpoved);
+		
+		
 		vstupniText.setText("");
+		
+		if(hra.konecHry()) {
+			vstupniText.setDisable(true);
+		}
+	}
+
+		
+		public void inicializuj(IHra hra) {
+			vystup.setText(hra.vratUvitani());
+			vystup.setEditable(false);
+			this.hra = hra;
+			
+			hra.getHerniPlan().addObserver(this);
+		}
+
+		@Override
+		public void update(Observable arg0, Object arg1) {
+			// TODO Auto-generated method stub
+			
+		}
+		
 	}
 	
 	
@@ -39,4 +69,4 @@ public class HomeController extends AnchorPane{
 
 
 	
-}
+
