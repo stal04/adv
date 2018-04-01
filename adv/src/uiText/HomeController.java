@@ -14,6 +14,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import logika.IHra;
 import logika.Prostor;
@@ -25,7 +26,7 @@ public class HomeController extends AnchorPane implements Observer{
 	
 	@FXML private TextArea vystup;
 	@FXML private TextField vstupniText;
-	
+	@FXML private ImageView uzivatel;
 
 	private IHra hra;
 
@@ -51,13 +52,16 @@ public class HomeController extends AnchorPane implements Observer{
 			vystup.setText(hra.vratUvitani());
 			vystup.setEditable(false);
 			this.hra = hra;
-			
+			uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
+			uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
 			hra.getHerniPlan().addObserver(this);
 		}
 
 		@Override
 		public void update(Observable arg0, Object arg1) {
-			// TODO Auto-generated method stub
+			
+			uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
+			uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
 			
 		}
 		

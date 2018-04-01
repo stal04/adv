@@ -31,7 +31,8 @@ public class Prostor {
 	private Map<String, Vec> seznamVeci; // veci v miestnosti
 	private Map<String, Postava> seznamPostav; // postavy v miestnosti
 	private boolean jeZamceny = false;
-
+	 private double x;
+	    private double y;
 	/**
 	 * Vytvoření prostoru se zadaným popisem, např. "kuchyň", "hala", "trávník před
 	 * domem"
@@ -42,14 +43,15 @@ public class Prostor {
 	 * @param popis
 	 *            Popis prostoru.
 	 */
-	public Prostor(String nazev, String popis) {
+	public Prostor(String nazev, String popis, double x, double y) {
 		this.nazev = nazev;
 		this.popis = popis;
 		vychody = new HashSet<Prostor>();
 		seznamVeci = new HashMap<String, Vec>();
 		seznamPostav = new HashMap<String, Postava>();
 		this.jeZamceny = jeZamceny;
-
+		this.x = x;
+        this.y = y;
 	}
 
 	/**
@@ -296,6 +298,22 @@ public class Prostor {
 
 	public Collection<Vec> getVeci() {
 		return Collections.unmodifiableCollection(seznamVeci.values());
+	}
+	
+	public double getX() {
+		return x;
+	}
+
+	public void setX(double x) {
+		this.x = x;
+	}
+
+	public double getY() {
+		return y;
+	}
+
+	public void setY(double y) {
+		this.y = y;
 	}
 
 }
