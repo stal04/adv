@@ -20,7 +20,7 @@ import logika.IHra;
 import logika.Prostor;
 import logika.Vec;
 import logika.Hra;
-
+import javafx.scene.layout.GridPane;
 
 public class HomeController extends AnchorPane implements Observer{
 	
