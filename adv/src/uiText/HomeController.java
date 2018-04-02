@@ -56,8 +56,9 @@ public class HomeController extends AnchorPane implements Observer{
 			vystup.setText(hra.vratUvitani());
 			vystup.setEditable(false);
 			this.hra = hra;
-			seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeci());
 			seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychody());
+			seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeci());
+			
 			seznamPostav.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getPostavy());
 			uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 			uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
@@ -66,9 +67,10 @@ public class HomeController extends AnchorPane implements Observer{
 
 		@Override
 		public void update(Observable arg0, Object arg1) {
+			seznamVychodu.getItems().clear();
 			seznamPostav.getItems().clear();
 			seznamVeciMistnost.getItems().clear();
-			seznamVychodu.getItems().clear();
+			
 			seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeci());
 			seznamPostav.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getPostavy());
 			seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychody());

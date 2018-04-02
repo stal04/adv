@@ -88,18 +88,7 @@ public class Hra implements IHra {
                 if (plan.nazevProstoru().equals("kralovstvi") && batoh.obsahujeVecBatoh("drak") ) { //hra sa ukončuje, ak prinesie draka do kralovstva
                     setKonecHry(true); //
                     return 
-                    "  sSSSSs   .S_sSSs     .S_SSSs    sdSS_SSSSSSbs   .S       S.   S.       .S_SSSs      sSSs   SSs    .S_SSSs   \n" +
-                    " d%%%%SP  .SS~YS%%b   .SS~SSSSS   YSSS~S%SSSSSP  .SS       SS.  SS.     .SS~SSSSS    d%%SP   Sd%   .SS~SSSSS  \n" +
-                    "d%S'      S%S   `S%b  S%S   SSSS       S%S       S%S       S%S  S%S     S%S   SSSS  d%S'     d%S   S%S   SSSS \n" +
-                    "S%S       S%S    S%S  S%S    S%S       S%S       S%S       S%S  S%S     S%S    S%S  S%S      S%S   S%S    S%S \n" +
-                    "S&S       S%S    d*S  S%SSSSSS%S       S&S       S&S       S&S  S&S     S%SSSSSS%S  S&S      S&S   S%SSSSSS%S \n" +
-                    "S&S       S&S   .S*S  S&S SSSS%S       S&S       S&S       S&S  S&S     S&S SSSS%S  S&S      S&S   S&S SSSS%S \n" +
-                    "S&S       S&S_sdSSS   S&S    S&S       S&S       S&S       S&S  S&S     S&S    S&S  S&S      S&S   S&S    S&S \n" +
-                    "S&S sSSs  S&S~YSY%b   S&S    S&S       S&S       S&S       S&S  S&S     S&S    S&S  S&S      S&S   S&S    S&S \n" +
-                    "S*b `S%%  S*S   `S%b  S*S    S&S       S*S       S*b       d*S  S*b     S*S    S&S  S*b      S*b   S&S    S&S \n" +
-                    "S*S   S%  S*S    S%S  S*S    S*S       S*S       S*S.     .S*S  S*S.    S*S    S*S  S*S.     S*S.  S&S    S&S \n" +
-                    " SS_sSSS  S*S    S&S  S*S    S*S       S*S        SSSbs_sdSSS    SSSbs  S*S    S*S   SSSbs   SSS   S&S    S&S \n" +
-                    "  Y~YSSY  S*S    SSS  SSS    S*S       S*S         YSSP~YSSY      YSSP  SSS    S*S    YSSP   SSY   S&S    S&S \n\n" ;
+                    "Gratulujem, vyhral si!";
 
                 }}
         }

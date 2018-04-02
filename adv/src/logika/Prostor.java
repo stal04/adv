@@ -155,9 +155,9 @@ public class Prostor {
 	 */
 
 	public String popisVychodu() {
-		String vracenyText = "východy:";
+		String vracenyText = ""; //= "východy:";
 		for (Prostor sousedni : vychody) {
-			vracenyText += " " + sousedni.getNazev();
+			vracenyText = " " + sousedni.getNazev();
 			if (sousedni.jeZamceny()) {
 				vracenyText += "(zamknutý)";
 			}

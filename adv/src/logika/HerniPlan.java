@@ -40,13 +40,13 @@ public class HerniPlan extends Observable{
      */
     private void zalozProstoryHry() {
         // vytvářejí se jednotlivé prostory
-    	Prostor hospoda = new Prostor("hospoda","hospoda, v ktorej varí krčmár pivo", -51.0, -149.0);
-        Prostor knihovna = new Prostor("knihovna", "knižnica, v ktorej sa nachádzajú staré recepty", 35.0, 40.0);
-        Prostor vedec = new Prostor("vedec","vedcovo doupě", 40.0, 90.0);
-        Prostor radnice = new Prostor("radnice","radnica v ktorej sa nachádzajú rôzne spisy, dokumenty a informácia, že drak sa nachádza v nepriateľskom kráľovstve!", 250.0, 40.0);
-        Prostor nepratelskeKralovstvi = new Prostor("nepratelske_kralovstvi","nepriateľské kráľovstvo, ktoré strážia strážci", 250.0, 150.0);
-        Prostor carodej = new Prostor("carodej","doupě chamtivého čarodeja, ktorý prahne po diamantoch", 150.0, 40.0);
-        Prostor kralovstvi = new Prostor("kralovstvi","kráľovstvo, ktorému zmizol drak, kráľovstvo ti dalo za úlohu priniesť mu draka", 0, 0);
+    	Prostor hospoda = new Prostor("hospoda","hospoda, v ktorej varí krčmár pivo", -55.0, -85.0);
+        Prostor knihovna = new Prostor("knihovna", "knižnica, v ktorej sa nachádzajú staré recepty", -63.0, -175.0);
+        Prostor vedec = new Prostor("vedec","vedcovo doupě", 15.0, -120.0);
+        Prostor radnice = new Prostor("radnice","radnica v ktorej sa nachádzajú rôzne spisy, dokumenty a informácia, že drak sa nachádza v nepriateľskom kráľovstve!", 130.0, -134.0);
+        Prostor nepratelskeKralovstvi = new Prostor("nepratelske_kralovstvi","nepriateľské kráľovstvo, ktoré strážia strážci", 140.0, 0.0);
+        Prostor carodej = new Prostor("carodej","doupě chamtivého čarodeja, ktorý prahne po diamantoch", 74.0, -192.0);
+        Prostor kralovstvi = new Prostor("kralovstvi","kráľovstvo, ktorému zmizol drak, kráľovstvo ti dalo za úlohu priniesť mu draka", 0.0, 0.0);
 
         // přiřazují se průchody mezi prostory (sousedící prostory)
         kralovstvi.setVychod(nepratelskeKralovstvi);
@@ -64,7 +64,7 @@ public class HerniPlan extends Observable{
 
         // predmety v miestnostiach       
         knihovna.vlozVec(new Vec("recept", true));
-        kralovstvi.vlozVec(new Vec("recept", true));
+        
         hospoda.vlozVec(new Vec("pivo", false));
         hospoda.vlozVec(new Vec("tlacenka", false));
         nepratelskeKralovstvi.vlozVec(new Vec("drak", true));
@@ -74,7 +74,7 @@ public class HerniPlan extends Observable{
         carodej.vlozPostavu(new Postava("carodej","Vymením lektvar za diamant."));
         vedec.vlozPostavu(new Postava("vedec","Informácie dám, len ak uhádneš rovnicu x^2-6x+9=0, zadaj výsledok v tvare res_rovnici cislo."));
         nepratelskeKralovstvi.vlozPostavu(new Postava("straz","Prelstiť nás môžeš len lektvarom."));
-        kralovstvi.vlozPostavu(new Postava("straz","Prelstiť nás môžeš len lektvarom."));
+        
 
         // zamknute miestnosti
         vedec.setZamceny(true);
@@ -116,7 +116,9 @@ public class HerniPlan extends Observable{
      *@param  prostor nový aktuální prostor
      */
     public void setAktualniProstor(Prostor prostor) {
-        aktualniProstor = prostor;
+        this.aktualniProstor = prostor;
+        this.setChanged();
+        this.notifyObservers();
     }
 
     /**
