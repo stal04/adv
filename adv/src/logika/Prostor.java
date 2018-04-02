@@ -51,6 +51,7 @@ public class Prostor {
 		seznamVeci = new HashMap<String, Vec>();
 		seznamPostav = new HashMap<String, Postava>();
 		this.jeZamceny = jeZamceny;
+		
 		this.x = x;
         this.y = y;
 	}
@@ -157,10 +158,11 @@ public class Prostor {
 	public String popisVychodu() {
 		String vracenyText = ""; //= "východy:";
 		for (Prostor sousedni : vychody) {
-			vracenyText = " " + sousedni.getNazev();
+			vracenyText += sousedni.getNazev();  
 			if (sousedni.jeZamceny()) {
-				vracenyText += "(zamknutý)";
-			}
+				vracenyText += "(zamknutý)\n" ;
+			} 
+			else vracenyText += "(odomknutý)\n";
 		}
 		return vracenyText;
 	}
@@ -210,7 +212,7 @@ public class Prostor {
 	public String nazvyVeci() {
 		String nazvy = "";
 		for (String jmenoVeci : seznamVeci.keySet()) {
-			nazvy += jmenoVeci + " ";
+			nazvy += jmenoVeci + "\n";
 		}
 		return nazvy;
 	}
@@ -300,6 +302,7 @@ public class Prostor {
 	public void setZamceny(boolean value) {
 		this.jeZamceny = value;
 	}
+	
 
 	public Collection<Vec> getVeci() {
 		return Collections.unmodifiableCollection(seznamVeci.values());

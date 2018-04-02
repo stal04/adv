@@ -51,4 +51,6 @@ public interface IHra {
 	 */
 	public HerniPlan getHerniPlan();
 
+	public void setKonecHry(boolean b);
+
 }

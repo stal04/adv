@@ -38,6 +38,7 @@ public class PrikazResRovnici implements IPrikaz
                 if((parametry[0].equals("3") || parametry[0].equals("tri"))){            
 
                     plan.getAktualniProstor().vlozVec(new Vec("diamant", true)); 
+                    plan.pozoruj();
                     return "Správne, pokračuj k čarodejovi. \nveci v miesnoti: " + plan.getAktualniProstor().nazvyVeci();
                 } 
 

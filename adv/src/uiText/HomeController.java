@@ -1,7 +1,12 @@
 package uiText;
 
+import java.awt.event.ActionListener;
 import java.util.Observable;
 import java.util.Observer;
+
+import javax.swing.JMenuItem;
+
+import javafx.event.ActionEvent;
 
 /*
  *
@@ -28,9 +33,10 @@ public class HomeController extends AnchorPane implements Observer{
 	@FXML private TextArea vystup;
 	@FXML private TextField vstupniText;
 	@FXML private ImageView uzivatel;
-	@FXML private ListView<Vec> seznamVeciMistnost;
-	@FXML private ListView<Prostor> seznamVychodu;
+	@FXML private ListView<String> seznamVeciMistnost;
+	@FXML private ListView<String> seznamVychodu;
 	@FXML private ListView<Postava> seznamPostav;
+	@FXML private JMenuItem novaHraMenuItem;
 	
 	private IHra hra;
 
@@ -56,8 +62,8 @@ public class HomeController extends AnchorPane implements Observer{
 			vystup.setText(hra.vratUvitani());
 			vystup.setEditable(false);
 			this.hra = hra;
-			seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychody());
-			seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeci());
+			seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().popisVychodu());
+			seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().nazvyVeci());
 			
 			seznamPostav.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getPostavy());
 			uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
@@ -71,9 +77,9 @@ public class HomeController extends AnchorPane implements Observer{
 			seznamPostav.getItems().clear();
 			seznamVeciMistnost.getItems().clear();
 			
-			seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeci());
+			seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().nazvyVeci());
 			seznamPostav.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getPostavy());
-			seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVychody());
+			seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().popisVychodu());
 			uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 			uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
 			

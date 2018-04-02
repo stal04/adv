@@ -120,6 +120,11 @@ public class HerniPlan extends Observable{
         this.setChanged();
         this.notifyObservers();
     }
+    
+    public void pozoruj() {
+    	this.setChanged();
+        this.notifyObservers();
+    }
 
     /**
      *  Metóda vracia odkaz na batoh.

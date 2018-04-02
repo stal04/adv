@@ -51,13 +51,20 @@ public class PrikazDej implements IPrikaz
                 batoh.vyberVecZBatohu("diamant");
                 plan.getAktualniProstor().vlozVec(new Vec("lektvar",true));
                 plan.getAktualniProstor().vlozVec(new Vec("diamant",false));
+                plan.pozoruj();
                 return "Ďakujem za diamant, na oplátku ti dám lektvar, ktorým môžeš uspať strážcov draka, informácia, kde sa nachádza drak je na radnici." + '\n' +"veci v miestnosti: " + plan.getAktualniProstor().nazvyVeci();
             }
 
             if (plan.nazevProstoru().equals("hospoda") && batoh.obsahujeVecBatoh("recept") && parametry[0].equals("recept") && parametry[1].equals("krcmar") ){      //po predanĂ­ receptu nĂˇm dĂˇ mapu                             
-                batoh.vyberVecZBatohu("recept");
+            	
+            	batoh.vyberVecZBatohu("recept");
+            	 plan.pozoruj();
                 plan.getAktualniProstor().vlozVec(new Vec("mapa",true));
+                plan.pozoruj();
                 plan.getAktualniProstor().vlozVec(new Vec("recept",false));
+                plan.pozoruj();
+                plan.getAktualniProstor().setZamceny(false);
+                plan.pozoruj();
                 return "Ďakujem za recept na pivo, pokračuj k vedcovi, on ti poradí ďalej. Tu máš mapu, aby si trafil." + '\n' +"veci v miestnosti: " + plan.getAktualniProstor().nazvyVeci();
             }
         }
@@ -65,7 +72,7 @@ public class PrikazDej implements IPrikaz
         if (plan.nazevProstoru().equals("nepratelske_kralovstvi") && batoh.obsahujeVecBatoh("lektvar") && parametry[0].equals("lektvar") && parametry[1].equals("straz") ) {     //po danĂ­ lektvĂˇru strĂˇĹľi je drak oslobodenĂ˝                             
             batoh.vyberVecZBatohu("lektvar");
             plan.getAktualniProstor().vlozVec(new Vec("drak",true));
-
+            plan.pozoruj();
             return "Uspal si strážcov, zober draka a odovzdaj ho kráľovi." + '\n' +"veci v miestnosti: " + plan.getAktualniProstor().nazvyVeci();
 
         }

@@ -40,9 +40,10 @@ public class PrikazSeber implements IPrikaz
                 return "Táto vec je neprenosná, nemôžeš si ju zobrať.";
             } else {
                 if ( batoh.vlozVecDoBatohu(vec)) { // dal si si vec do batohu
+                	plan.pozoruj();
                     return "Zobral si "+ vec.getJmeno() + "." + "\nVec "+nazevVeci+" je vložená do batohu."; 
                 }            
-                else {
+                else { plan.pozoruj();
                     aktualniProstor.vlozVec(vec);                                  
                     return "Máš plný batoh.";
                 }
