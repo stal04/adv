@@ -64,6 +64,7 @@ public class HerniPlan extends Observable{
 
         // predmety v miestnostiach       
         knihovna.vlozVec(new Vec("recept", true));
+        kralovstvi.vlozVec(new Vec("recept", true));
         hospoda.vlozVec(new Vec("pivo", false));
         hospoda.vlozVec(new Vec("tlacenka", false));
         nepratelskeKralovstvi.vlozVec(new Vec("drak", true));
@@ -73,6 +74,7 @@ public class HerniPlan extends Observable{
         carodej.vlozPostavu(new Postava("carodej","Vymením lektvar za diamant."));
         vedec.vlozPostavu(new Postava("vedec","Informácie dám, len ak uhádneš rovnicu x^2-6x+9=0, zadaj výsledok v tvare res_rovnici cislo."));
         nepratelskeKralovstvi.vlozPostavu(new Postava("straz","Prelstiť nás môžeš len lektvarom."));
+        kralovstvi.vlozPostavu(new Postava("straz","Prelstiť nás môžeš len lektvarom."));
 
         // zamknute miestnosti
         vedec.setZamceny(true);
@@ -192,5 +194,6 @@ public class HerniPlan extends Observable{
     public void setProhra(boolean stav) {
         this.prohra = stav;
     }
-
+    
+    
 }

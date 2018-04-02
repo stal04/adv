@@ -5,6 +5,7 @@ import java.util.Collections;
 import java.util.Set;
 
 import logika.Vec;
+import logika.Postava;
 
 import java.util.HashSet;
 import java.util.Map;
@@ -197,6 +198,10 @@ public class Prostor {
 	public Collection<Prostor> getVychody() {
 		return Collections.unmodifiableCollection(vychody);
 	}
+	
+	public Collection<Postava> getPostavy() {
+		return Collections.unmodifiableCollection(seznamPostav.values());
+	}
 
 	/**
 	 * Vypíše názvy věcí
@@ -315,5 +320,9 @@ public class Prostor {
 	public void setY(double y) {
 		this.y = y;
 	}
-
+	
+	@Override
+    public String toString() {
+    	return getNazev();
+    }
 }

@@ -41,4 +41,9 @@ public class Postava
     public String getRec() {
         return rec; 
     }
+    
+    @Override
+    public String toString() {
+    	return getJmeno();
+    }
 }
