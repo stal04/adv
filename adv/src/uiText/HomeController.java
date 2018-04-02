@@ -1,6 +1,9 @@
 package uiText;
 
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -15,8 +18,10 @@ import javafx.event.ActionEvent;
  */
 
 import javafx.fxml.FXML;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -25,8 +30,13 @@ import logika.IHra;
 import logika.Postava;
 import logika.Prostor;
 import logika.Vec;
+import logika.HerniPlan;
 import logika.Hra;
 import javafx.scene.layout.GridPane;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
 
 public class HomeController extends AnchorPane implements Observer{
 	
@@ -36,12 +46,18 @@ public class HomeController extends AnchorPane implements Observer{
 	@FXML private ListView<String> seznamVeciMistnost;
 	@FXML private ListView<String> seznamVychodu;
 	@FXML private ListView<Postava> seznamPostav;
-	@FXML private JMenuItem novaHraMenuItem;
 	
-	private IHra hra;
+	private MenuItem napoveda;
 
-	@FXML public void odeslaniPrikazu() {
+	private IHra hra;
+	private HerniPlan plan;
+
+	@FXML public void odeslaniPrikazu() throws MalformedURLException {
 		String radek = vstupniText.getText();
+		 if(radek.equals("napoveda")) {
+			 vytvorNapovedu();
+			 
+		} else {
 		String odpoved = 
 				hra.zpracujPrikaz(radek);
 		
@@ -54,8 +70,21 @@ public class HomeController extends AnchorPane implements Observer{
 		
 		if(hra.konecHry()) {
 			vstupniText.setDisable(true);
+			}
 		}
 	}
+	
+	public void vytvorNapovedu() throws MalformedURLException {
+	File file = new File("C:\\Users\\Lenka Šťastná\\git\\adv\\src\\uiText\\napoveda.html");
+	URL url = file.toURI().toURL();
+	  WebView browser = new WebView();
+	  WebEngine webEngine = browser.getEngine();
+	  webEngine.load(url.toString());
+	  Scene scene = new Scene(browser);
+	  Stage stage = new Stage();
+	  stage.setScene(scene);
+	 stage.show();
+	 }
 
 		
 		public void inicializuj(IHra hra) {
@@ -68,6 +97,9 @@ public class HomeController extends AnchorPane implements Observer{
 			seznamPostav.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getPostavy());
 			uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 			uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
+	
+			
+			
 			hra.getHerniPlan().addObserver(this);
 		}
 
@@ -85,6 +117,9 @@ public class HomeController extends AnchorPane implements Observer{
 			
 		}
 		
+		@FXML public void mluv() {
+			
+		}
 	}
 	
 	

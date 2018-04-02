@@ -91,6 +91,7 @@ public class HerniPlan extends Observable{
     public Prostor getAktualniProstor() {
         return aktualniProstor;
     }
+    
 
     /**
      *  Metóda vracia meno aktuálneho priestoru, kde sa hráč nachádza

@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="true" prefHeight="794.0" prefWidth="814.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="uiText.HomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="true" prefHeight="-1.0" prefWidth="-1.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="uiText.HomeController">
   <children>
     <MenuBar layoutX="0.0" layoutY="0.0" prefWidth="356.0">
       <menus>
@@ -22,14 +22,14 @@
         </Menu>
         <Menu mnemonicParsing="false" text="O hre">
           <items>
-            <MenuItem mnemonicParsing="false" text="Nápoveda" />
+            <MenuItem mnemonicParsing="false" onAction="#vytvorNapovedu" text="Nápoveda" fx:id="nap" />
           </items>
         </Menu>
       </menus>
     </MenuBar>
     <AnchorPane layoutX="24.0" layoutY="46.0" minHeight="284.0" minWidth="350.0" prefHeight="334.0" prefWidth="393.0">
       <children>
-        <ImageView id="mapa.png" fx:id="mapa" fitHeight="325.0" fitWidth="396.0" layoutX="0.0" layoutY="0.0">
+        <ImageView id="mapa.png" fx:id="mapa" fitHeight="325.0000999999975" fitWidth="393.0" layoutX="0.0" layoutY="0.0">
           <image>
             <Image url="@mapa.png" preserveRatio="true" smooth="true" />
           </image>
@@ -56,11 +56,7 @@
     <VBox layoutX="428.0" layoutY="344.0" minHeight="107.0" prefHeight="113.0" prefWidth="356.0">
       <children>
         <Label text="Obsah batohu:" />
-        <Rectangle arcHeight="0.0" arcWidth="0.0" fill="#ffffff00" height="89.0" smooth="true" stroke="BLACK" strokeType="INSIDE" visible="true" width="362.0">
-          <effect>
-            <SepiaTone />
-          </effect>
-        </Rectangle>
+        <HBox prefHeight="100.0" prefWidth="200.0" />
       </children>
     </VBox>
     <GridPane layoutX="21.0" layoutY="487.0" prefHeight="293.0" prefWidth="779.0">
@@ -70,7 +66,7 @@
             <Label text="Východy:" />
             <ListView fx:id="seznamVychodu" editable="true" prefHeight="283.0" prefWidth="260.0">
               <VBox.margin>
-                <Insets left="5.0" right="5.0" fx:id="x1" />
+                <Insets bottom="5.0" left="5.0" right="5.0" fx:id="x1" />
               </VBox.margin>
             </ListView>
           </children>
@@ -80,7 +76,7 @@
             <Label text="Postavy v miestnosti:" />
             <ListView fx:id="seznamPostav" editable="true" prefHeight="283.0" prefWidth="253.0" VBox.margin="$x1">
               <contextMenu>
-                <ContextMenu>
+                <ContextMenu onAction="#mluv" fx:id="mluv">
                   <items>
                     <MenuItem mnemonicParsing="false" text="Mluv" />
                   </items>

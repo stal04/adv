@@ -33,6 +33,10 @@ public class PrikazObsahBatohu implements IPrikaz
             return "V batohu máš " + plan.getBatoh().nazvyVeciVBatohu() + "."; 
         }
     }
+    
+    public String getBatoh() {
+    	return plan.getBatoh().nazvyVeciVBatohu();
+    }
 
     /**
      *  Metoda vrací název příkazu (slovo které používá hráč pro jeho vyvolání)

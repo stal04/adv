@@ -63,7 +63,7 @@ public class PrikazDej implements IPrikaz
                 plan.pozoruj();
                 plan.getAktualniProstor().vlozVec(new Vec("recept",false));
                 plan.pozoruj();
-                plan.getAktualniProstor().setZamceny(false);
+                //plan.getSousedniProstor().setZamceny(false);
                 plan.pozoruj();
                 return "Ďakujem za recept na pivo, pokračuj k vedcovi, on ti poradí ďalej. Tu máš mapu, aby si trafil." + '\n' +"veci v miestnosti: " + plan.getAktualniProstor().nazvyVeci();
             }
