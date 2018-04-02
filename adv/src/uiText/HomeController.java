@@ -27,6 +27,7 @@ public class HomeController extends AnchorPane implements Observer{
 	@FXML private TextArea vystup;
 	@FXML private TextField vstupniText;
 	@FXML private ImageView uzivatel;
+	@FXML private ListView<Vec> seznamVeciMistnost;
 
 	private IHra hra;
 
@@ -52,6 +53,7 @@ public class HomeController extends AnchorPane implements Observer{
 			vystup.setText(hra.vratUvitani());
 			vystup.setEditable(false);
 			this.hra = hra;
+			seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeci());
 			uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 			uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
 			hra.getHerniPlan().addObserver(this);
@@ -59,7 +61,8 @@ public class HomeController extends AnchorPane implements Observer{
 
 		@Override
 		public void update(Observable arg0, Object arg1) {
-			
+			seznamVeciMistnost.getItems().clear();
+			seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeci());
 			uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 			uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
 			
