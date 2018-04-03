@@ -1,31 +1,47 @@
-/* Soubor je ulozen v kodovani UTF-8.
- * Kontrola kĂłdovĂˇnĂ­: PĹ™Ă­liĹˇ ĹľluĹĄouÄŤkĂ˝ kĹŻĹ� ĂşpÄ›l ÄŹĂˇbelskĂ© Ăłdy. */
 package main;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import logika.Hra;
+import logika.IHra;
+import ui.HomeController;
+import ui.TextoveRozhrani;
+
+public class Start extends javafx.application.Application {
 
 
-import logika.*;
-import uiText.TextoveRozhrani;
-
-/*******************************************************************************
- * Třída  Start je hlavní třídou projektu,
- * který představuje jednoduchou textovou adventuru určenou k dalším úpravám a rozšiřování
- *
- * @author    Jarmila Pavlíčková, Pavlíček
- * @version   ZS 2017/2018
- */
-public class Start
-{
-	/***************************************************************************
-     * Metoda, prostřednictvím níž se spouští celá aplikace.
-     *
-     * @param args Parametry příkazového řádku
-     */
-    public static void main(String[] args)
-    {
-        
-        IHra hra = new Hra();
-        TextoveRozhrani ui = new TextoveRozhrani(hra);
-        ui.hraj();
+public static void main(String[] args) {
+	if (args.length == 0) {
+        launch(args);
+    } else {
+        if (args[0].equals("-text")) {
+            IHra hra = new Hra();
+            TextoveRozhrani ui = new TextoveRozhrani(hra);
+            ui.hraj();
+        } else {
+            System.out.println("Neplatný parametr");
+        }
     }
+}
+
+@Override
+public void start(Stage primaryStage) throws Exception {
+    //Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
+    
+   
+    FXMLLoader loader = new FXMLLoader();
+    loader.setLocation(getClass()
+    		.getResource("Home.fxml"));
+    
+    Parent root = loader.load();
+    HomeController c = loader.getController();
+    c.inicializuj(new  Hra());
+    
+    primaryStage.setTitle("Adventúra Dračie kráľovstvo");
+    primaryStage.setScene(new Scene(root));
+    primaryStage.show();
+}
+
 }

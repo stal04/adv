@@ -1,4 +1,4 @@
-package uiText;
+package ui;
 
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -75,7 +75,7 @@ public class HomeController extends AnchorPane implements Observer{
 	}
 	
 	public void vytvorNapovedu() throws MalformedURLException {
-	File file = new File("C:\\Users\\Lenka Šťastná\\git\\adv\\src\\uiText\\napoveda.html");
+	File file = new File("C:\\Users\\Lenka Šťastná\\git\\adv\\resources\\main\\napoveda.html");
 	URL url = file.toURI().toURL();
 	  WebView browser = new WebView();
 	  WebEngine webEngine = browser.getEngine();

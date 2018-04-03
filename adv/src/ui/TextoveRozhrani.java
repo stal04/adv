@@ -1,4 +1,4 @@
-package uiText;
+package ui;
 
 import java.util.Scanner;
 import logika.IHra;

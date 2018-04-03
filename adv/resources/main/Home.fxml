@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="true" prefHeight="-1.0" prefWidth="-1.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="uiText.HomeController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="true" prefHeight="-1.0" prefWidth="-1.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ui.HomeController">
   <children>
     <MenuBar layoutX="0.0" layoutY="0.0" prefWidth="356.0">
       <menus>
@@ -31,12 +31,12 @@
       <children>
         <ImageView id="mapa.png" fx:id="mapa" fitHeight="325.0000999999975" fitWidth="393.0" layoutX="0.0" layoutY="0.0">
           <image>
-            <Image url="@mapa.png" preserveRatio="true" smooth="true" />
+            <Image url="ui/mapa.png" preserveRatio="true" smooth="true" />
           </image>
         </ImageView>
         <ImageView id="post.sh.png" fx:id="uzivatel" fitHeight="101.0" fitWidth="151.0" layoutX="58.0" layoutY="203.0">
           <image>
-            <Image url="@post.sh.png" preserveRatio="true" smooth="true" />
+            <Image url="ui/post.sh.png" preserveRatio="true" smooth="true" />
           </image>
         </ImageView>
       </children>

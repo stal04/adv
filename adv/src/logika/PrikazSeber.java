@@ -38,24 +38,19 @@ public class PrikazSeber implements IPrikaz
             Vec vec = aktualniProstor.vyberVec(nazevVeci);
             if (vec == null) {  // ak obsahuje, ale pri výbere je nulová, nie je prenosná
                 return "Táto vec je neprenosná, nemôžeš si ju zobrať.";
-            } else { if (vec.equals("mapa")) {
-             plan.getAktualniProstor().vlozVecDoBatohu(vec);
-            	prostor.vratSousedniProstor.setZamknuty(false);
-            	
-            	plan.pozoruj();
-            } else
+                
+            } else {
                 if ( batoh.vlozVecDoBatohu(vec)) { // dal si si vec do batohu
-                	plan.pozoruj();
                     return "Zobral si "+ vec.getJmeno() + "." + "\nVec "+nazevVeci+" je vložená do batohu."; 
                 }            
-                else { plan.pozoruj();
-                    aktualniProstor.vlozVec(vec);                                  
+                else {
+                    aktualniProstor.vlozVec(vec);  //nedáš doňho ďalšiu vec                                 
                     return "Máš plný batoh.";
                 }
             }
         }
         else {
-            return "Nič také tu neni."; // priestor neobsahuje vec
+            return "Nic takového tu není."; // priestor neobsahuje vec
         }
     }
 
