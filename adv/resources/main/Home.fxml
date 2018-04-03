@@ -9,6 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.shape.*?>
+<?scenebuilder-classpath-element ../ui?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="true" prefHeight="-1.0" prefWidth="-1.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ui.HomeController">
   <children>
@@ -50,7 +51,11 @@
     <VBox layoutX="31.0" layoutY="415.0" prefHeight="56.0" prefWidth="378.0">
       <children>
         <Label text="Zadaj príkaz:" />
-        <TextField fx:id="vstupniText" onAction="#odeslaniPrikazu" prefWidth="200.0" />
+        <TextField fx:id="vstupniText" onAction="#odeslaniPrikazu" prefWidth="200.0">
+          <tooltip>
+            <Tooltip text="Zadaj vstupný príkaz:" />
+          </tooltip>
+        </TextField>
       </children>
     </VBox>
     <VBox layoutX="428.0" layoutY="344.0" minHeight="107.0" prefHeight="113.0" prefWidth="356.0">

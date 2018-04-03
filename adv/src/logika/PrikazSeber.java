@@ -13,7 +13,7 @@ public class PrikazSeber implements IPrikaz
     private static final String NAZEV = "seber";
     private HerniPlan plan;
     private Batoh batoh;
-
+    private String prostor;
     /**
      * konštruktor
      */
@@ -40,8 +40,20 @@ public class PrikazSeber implements IPrikaz
                 return "Táto vec je neprenosná, nemôžeš si ju zobrať.";
                 
             } else {
-                if ( batoh.vlozVecDoBatohu(vec)) { // dal si si vec do batohu
-                    return "Zobral si "+ vec.getJmeno() + "." + "\nVec "+nazevVeci+" je vložená do batohu."; 
+                if ( batoh.vlozVecDoBatohu(vec)) { 
+                	if (vec.getJmeno() == "mapa"){
+                		
+                	
+                	Prostor sousedniMistnost = plan.getAktualniProstor().vratSousedniProstor("vedec");
+                    sousedniMistnost.setZamceny(false);
+                		
+                		
+                	plan.pozoruj();// dal si si vec do batohu
+                    return "Zobral si "+ vec.getJmeno() + "." + "\nVec "+nazevVeci+" je vložená do batohu."; }
+                	
+                	plan.pozoruj();// dal si si vec do batohu
+                    return "Zobral si "+ vec.getJmeno() + "." + "\nVec "+nazevVeci+" je vložená do batohu.";
+                	
                 }            
                 else {
                     aktualniProstor.vlozVec(vec);  //nedáš doňho ďalšiu vec                                 

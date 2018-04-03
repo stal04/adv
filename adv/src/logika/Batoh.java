@@ -3,6 +3,7 @@
 package logika;
 
 import java.util.Map;
+import java.util.Observable;
 import java.util.HashMap;
 
 /*******************************************************************************
@@ -11,16 +12,17 @@ import java.util.HashMap;
  * @author    Lenka Šťastná
  * @version   školský rok 2017/2018
  */
-public class Batoh
+public class Batoh extends Observable
 {
     private static final int KAPACITA = 4; 
     private Map<String, Vec> seznamVeci; 
-
+    private HerniPlan plan;
     /**
      * konštruktor
      */
     public Batoh(){
         seznamVeci = new HashMap<String, Vec>();
+        this.plan=plan;
     }
 
     /**
@@ -32,6 +34,7 @@ public class Batoh
         if (seznamVeci.size() < KAPACITA & vec.jePrenositelna() ) {
             seznamVeci.put(vec.getJmeno(), vec);
             return true;
+            
         }
         return false;
     }
@@ -51,10 +54,13 @@ public class Batoh
      */
     public Vec vyberVecZBatohu (String jmenoVeci) {
         Vec nalezenaVec;
+      
         if (seznamVeci.containsKey(jmenoVeci)) {
             nalezenaVec = seznamVeci.get(jmenoVeci);
             seznamVeci.remove(jmenoVeci);
+
             return nalezenaVec;
+            
         }
         return null;
     }
