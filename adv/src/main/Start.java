@@ -40,6 +40,7 @@ public void start(Stage primaryStage) throws Exception {
     c.inicializuj(new  Hra());
     
     primaryStage.setTitle("Adventúra Dračie kráľovstvo");
+    primaryStage.setResizable(false);
     primaryStage.setScene(new Scene(root));
     primaryStage.show();
 }

@@ -20,6 +20,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
@@ -44,10 +45,12 @@ public class HomeController extends AnchorPane implements Observer{
 	@FXML private TextArea vystup;
 	@FXML private TextField vstupniText;
 	@FXML private ImageView uzivatel;
-	@FXML private ListView<String> seznamVeciMistnost;
+	@FXML private ListView<Vec> seznamVeciMistnost;
 	@FXML private ListView<String> seznamVychodu;
 	@FXML private ListView<Postava> seznamPostav;
 	@FXML private Tooltip tooltip;
+	@FXML private ContextMenu cm;
+	private String postava;
 	
 	private MenuItem napoveda;
 
@@ -94,8 +97,8 @@ public class HomeController extends AnchorPane implements Observer{
 			vystup.setEditable(false);
 			this.hra = hra;
 			seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().popisVychodu());
-			seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().nazvyVeci());
-			
+			seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeci());
+		
 			seznamPostav.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getPostavy());
 			uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 			uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
@@ -121,19 +124,34 @@ public class HomeController extends AnchorPane implements Observer{
 			seznamVychodu.getItems().clear();
 			seznamPostav.getItems().clear();
 			seznamVeciMistnost.getItems().clear();
+			seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeci());
 			
-			seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().nazvyVeci());
 			seznamPostav.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getPostavy());
+
 			seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().popisVychodu());
 			uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 			uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
-			
 		}
 		
-		@FXML public void mluv() {
+		
+	   public void mluv(ActionEvent event) {
+			String nvm = event.getSource().toString();
+			
+			if(nvm == "javafx.scene.control.ContextMenu@614ba569") {
+				postava = "krcmar";
+				}
+			
+			String odpoved = 
+					hra.zpracujPrikaz("mluv " + postava);
+				
+			vystup.appendText(nvm + "\n----------\n"+vstupniText.getText()+"\n----------\n");
+			vystup.appendText(odpoved);
+			
 			
 		}
-	}
+	  
+
+}
 	
 	
 

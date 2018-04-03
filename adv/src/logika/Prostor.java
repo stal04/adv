@@ -34,6 +34,7 @@ public class Prostor {
 	private boolean jeZamceny = false;
 	 private double x;
 	    private double y;
+	    private HerniPlan plan;
 	/**
 	 * Vytvoření prostoru se zadaným popisem, např. "kuchyň", "hala", "trávník před
 	 * domem"
@@ -51,6 +52,7 @@ public class Prostor {
 		seznamVeci = new HashMap<String, Vec>();
 		seznamPostav = new HashMap<String, Postava>();
 		this.jeZamceny = jeZamceny;
+		this.plan=plan;
 		
 		this.x = x;
         this.y = y;
@@ -305,6 +307,7 @@ public class Prostor {
 	
 
 	public Collection<Vec> getVeci() {
+
 		return Collections.unmodifiableCollection(seznamVeci.values());
 	}
 	

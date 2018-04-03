@@ -16,6 +16,7 @@ import java.util.Observable;
 public class HerniPlan extends Observable{
 
     private Prostor aktualniProstor;
+    
     private Batoh batoh;
     private Postava postava;
     private Hra hra;
@@ -67,7 +68,7 @@ public class HerniPlan extends Observable{
         
         hospoda.vlozVec(new Vec("pivo", false));
         hospoda.vlozVec(new Vec("tlacenka", false));
-        nepratelskeKralovstvi.vlozVec(new Vec("drak", true));
+      
 
         // postavy v miestnostiach
         hospoda.vlozPostavu(new Postava("krcmar","Informácie vymením len za recept na staré pivo, nájdeš ho v knihovne."));
@@ -78,6 +79,7 @@ public class HerniPlan extends Observable{
 
         // zamknute miestnosti
         vedec.setZamceny(true);
+        
 
         aktualniProstor = kralovstvi;  // hra začíná v kralovstvi       
     }
@@ -92,6 +94,7 @@ public class HerniPlan extends Observable{
         return aktualniProstor;
     }
     
+    
 
     /**
      *  Metóda vracia meno aktuálneho priestoru, kde sa hráč nachádza
@@ -101,6 +104,8 @@ public class HerniPlan extends Observable{
     public String nazevProstoru(){
         return aktualniProstor.getNazev();
     }
+    
+  
 
     /**
      *  Metoda vracia odkaz na vec

@@ -42,14 +42,12 @@ public class PrikazSeber implements IPrikaz
             } else {
                 if ( batoh.vlozVecDoBatohu(vec)) { 
                 	if (vec.getJmeno() == "mapa"){
-                		
-                	
+                    	
                 	Prostor sousedniMistnost = plan.getAktualniProstor().vratSousedniProstor("vedec");
                     sousedniMistnost.setZamceny(false);
-                		
-                		
                 	plan.pozoruj();// dal si si vec do batohu
                     return "Zobral si "+ vec.getJmeno() + "." + "\nVec "+nazevVeci+" je vložená do batohu."; }
+                	
                 	
                 	plan.pozoruj();// dal si si vec do batohu
                     return "Zobral si "+ vec.getJmeno() + "." + "\nVec "+nazevVeci+" je vložená do batohu.";
