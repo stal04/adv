@@ -36,6 +36,7 @@ public class Start extends javafx.application.Application {
 			}
 		}
 	}
+	
 	/**
 	 * Metóda, ktorá sa spája s fxml súborom, ktoý obsahuje grafiku programu, zakláda scénu.
 	 */
