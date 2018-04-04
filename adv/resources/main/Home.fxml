@@ -93,7 +93,15 @@
         <VBox prefHeight="200.0" prefWidth="100.0" GridPane.columnIndex="2" GridPane.rowIndex="0">
           <children>
             <Label text="Veci v miestnosti:" />
-            <ListView fx:id="seznamVeciMistnost" editable="true" prefHeight="269.0" prefWidth="253.0" VBox.margin="$x1" />
+            <ListView fx:id="seznamVeciMistnost" editable="true" prefHeight="269.0" prefWidth="253.0" VBox.margin="$x1">
+              <contextMenu>
+                <ContextMenu>
+                  <items>
+                    <MenuItem mnemonicParsing="false" onAction="#seber" text="Seber" fx:id="seber" />
+                  </items>
+                </ContextMenu>
+              </contextMenu>
+            </ListView>
           </children>
         </VBox>
       </children>
