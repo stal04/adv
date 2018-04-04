@@ -44,6 +44,16 @@ import javafx.scene.web.WebView;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
+/**
+ * Class HomeController - třída představující mapu a stav adventury.
+ * 
+ * Tato třída inicializuje prvky ze kterých se hra skládá: vytváří všechny
+ * prostory, propojuje je vzájemně pomocí východů a pamatuje si aktuální
+ * prostor, ve kterém se hráč právě nachází.
+ *
+ * @author Michael Kolling, Lubos Pavlicek, Jarmila Pavlickova, Lenka Šťastná
+ * @version pro školní rok 2017/2018
+ */
 public class HomeController extends AnchorPane implements Observer {
 
 	@FXML
@@ -67,6 +77,10 @@ public class HomeController extends AnchorPane implements Observer {
 	private IHra hra;
 	private HerniPlan plan;
 
+	/**
+	 * Metóda, ktorá sa spája s fxml súborom, ktoý obsahuje grafiku programu,
+	 * zakláda scénu.
+	 */
 	@FXML
 	public void odeslaniPrikazu() throws MalformedURLException {
 		String radek = vstupniText.getText();
@@ -88,6 +102,9 @@ public class HomeController extends AnchorPane implements Observer {
 		}
 	}
 
+	/**
+	 * Metóda, ktorá vracia html nápovedu po kliknutí na "Nápoveda" menuitem.
+	 */
 	public void vytvorNapovedu() throws MalformedURLException {
 		File file = new File("C:\\Users\\Lenka Šťastná\\git\\adv\\resources\\main\\napoveda.html");
 		URL url = file.toURI().toURL();
@@ -100,6 +117,10 @@ public class HomeController extends AnchorPane implements Observer {
 		stage.show();
 	}
 
+	/**
+	 * Metóda, ktorá vracia koniec hry. Najskôr sa Alertom spýta, či naozaj chceš
+	 * hru ukončiť, ak klikneš ok, hru ukončí.
+	 */
 	public void konecHry() {
 		Alert al = new Alert(AlertType.CONFIRMATION, "Chcete hru naozaj ukončiť?");
 		al.setHeaderText("Ukončenie hry");
@@ -112,6 +133,10 @@ public class HomeController extends AnchorPane implements Observer {
 		al.close();
 	}
 
+	/**
+	 * Metóda, ktorá po kliknutí na menuitemn "Nová hra" vyhodí alert, či chceš
+	 * naozaj hru ukončiť a začať novú. Ak Ok, spusší novú hru inak sa alert zavrie.
+	 */
 	public void novaHra() {
 		Alert al = new Alert(AlertType.CONFIRMATION, "Chcete naozaj spustiť novú hru");
 		al.setHeaderText("Nová hra");
@@ -127,6 +152,11 @@ public class HomeController extends AnchorPane implements Observer {
 		}
 		al.close();
 	}
+
+	/**
+	 * Metóda, ktorá inicializuje hru, vracia uvítanie, vyprázdnuje polia s vychodmi
+	 * vecami a postavami.
+	 */
 
 	public void inicializuj(IHra hra) {
 		vystup.setText(hra.vratUvitani());
@@ -149,6 +179,9 @@ public class HomeController extends AnchorPane implements Observer {
 		hra.getHerniPlan().addObserver(this);
 	}
 
+	/**
+	 * Metóda, ktorá updatuje polia s východom, postavami a východmi
+	 */
 	@Override
 	public void update(Observable arg0, Object arg1) {
 		seznamVychodu.getItems().clear();
@@ -163,6 +196,9 @@ public class HomeController extends AnchorPane implements Observer {
 		uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
 	}
 
+	/**
+	 * Metóda, ktorá po kliknutí na contextmenu item vracia reč vybranej postavy
+	 */
 	public void mluv() {
 
 		String odpoved = hra.zpracujPrikaz("mluv " + seznamPostav.getSelectionModel().getSelectedItem());
@@ -172,6 +208,9 @@ public class HomeController extends AnchorPane implements Observer {
 
 	}
 
+	/**
+	 * Metóda, ktorá po kliknutí na contextmenu item vykoná príkaz seber predmet
+	 */
 	public void seber() {
 
 		String odpoved = hra.zpracujPrikaz("seber " + seznamVeciMistnost.getSelectionModel().getSelectedItem());

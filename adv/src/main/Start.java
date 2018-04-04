@@ -9,8 +9,20 @@ import logika.IHra;
 import ui.HomeController;
 import ui.TextoveRozhrani;
 
+/**
+ * Class Start - trieda, ktorá spúšťa celý program
+ * 
+ * Táto trieda je tvorená najdôležitejšou metódou celého programu, vďaka ktorej sa spustí.
+ *
+ * @author Filip Vencovský, Lenka Šťastná
+ * @version pro školní rok 2017/2018
+ */
 public class Start extends javafx.application.Application {
-
+ 
+	/**
+	 * Metóda, ktorá sa spája s textovým rozhraním a spúšťa hru
+	 */
+	
 	public static void main(String[] args) {
 		if (args.length == 0) {
 			launch(args);
@@ -24,7 +36,9 @@ public class Start extends javafx.application.Application {
 			}
 		}
 	}
-
+	/**
+	 * Metóda, ktorá sa spája s fxml súborom, ktoý obsahuje grafiku programu, zakláda scénu.
+	 */
 	@Override
 	public void start(Stage primaryStage) throws Exception {
 		// Parent root = FXMLLoader.load(getClass().getResource("Home.fxml"));
