@@ -6,6 +6,7 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.Optional;
 
 import javax.swing.JMenuItem;
 
@@ -20,12 +21,15 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Tooltip;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import logika.IHra;
@@ -51,8 +55,7 @@ public class HomeController extends AnchorPane implements Observer{
 	@FXML private Tooltip tooltip;
 	@FXML private ContextMenu cm;
 	private String postava;
-	
-	private MenuItem napoveda;
+
 
 	private IHra hra;
 	private HerniPlan plan;
@@ -61,7 +64,8 @@ public class HomeController extends AnchorPane implements Observer{
 		String radek = vstupniText.getText();
 		 if(radek.equals("napoveda")) {
 			 vytvorNapovedu();
-			 
+		 } else if(radek.equals("napoveda")) {
+				 konecHry();
 		} else {
 		String odpoved = 
 				hra.zpracujPrikaz(radek);
@@ -91,6 +95,36 @@ public class HomeController extends AnchorPane implements Observer{
 	 stage.show();
 	 }
 
+	public void konecHry() {
+		Alert al = new Alert(AlertType.CONFIRMATION, "Chcete hru naozaj ukončiť?");
+		al.setHeaderText("Ukončenie hry");
+		Optional<ButtonType> result = al.showAndWait();
+		if (result.get() == ButtonType.OK) {
+		String odpoved = hra.zpracujPrikaz("konec");
+		vstupniText.setDisable(true);
+		System.exit(0);
+		}
+		al.close();
+	}
+	
+	public void novaHra() {
+		Alert al = new Alert(AlertType.CONFIRMATION, "Chcete naozaj spustiť novú hru");
+		al.setHeaderText("Nová hra");
+		Optional<ButtonType> result = al.showAndWait();
+		if (result.get() == ButtonType.OK) {
+		String odpoved = hra.zpracujPrikaz("konec");
+		IHra hra = new Hra();
+		
+		seznamVychodu.getItems().clear();
+		seznamPostav.getItems().clear();
+		seznamVeciMistnost.getItems().clear();
+		inicializuj(hra);
+		}
+		al.close();
+	}
+	
+	
+	
 		
 		public void inicializuj(IHra hra) {
 			vystup.setText(hra.vratUvitani());

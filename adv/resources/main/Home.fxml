@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.shape.*?>
-<?scenebuilder-classpath-element ../ui?>
+<?scenebuilder-classpath-element ../../resources?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" pickOnBounds="true" prefHeight="-1.0" prefWidth="-1.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="ui.HomeController">
   <children>
@@ -17,8 +17,8 @@
       <menus>
         <Menu mnemonicParsing="false" text="Hra">
           <items>
-            <MenuItem mnemonicParsing="false" text="Nová hra" fx:id="novaHra" />
-            <MenuItem mnemonicParsing="false" text="Koniec hry" fx:id="konecHry" />
+            <MenuItem mnemonicParsing="false" onAction="#novaHra" text="Nová hra" fx:id="novaHra" />
+            <MenuItem mnemonicParsing="false" onAction="#konecHry" text="Koniec hry" fx:id="konecHry" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="O hre">
