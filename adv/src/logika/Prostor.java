@@ -214,7 +214,7 @@ public class Prostor {
 	public String nazvyVeci() {
 		String nazvy = "";
 		for (String jmenoVeci : seznamVeci.keySet()) {
-			nazvy += jmenoVeci + "\n";
+			nazvy += jmenoVeci + " ";
 		}
 		return nazvy;
 	}
