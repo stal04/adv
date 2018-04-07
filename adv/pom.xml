@@ -43,7 +43,7 @@
 						<manifest>
 							<addClasspath>true</addClasspath>
 							<mainClass>
-	uiText.Application</mainClass>
+	ui.Application</mainClass>
 						</manifest>
 					</archive>
 				</configuration>
