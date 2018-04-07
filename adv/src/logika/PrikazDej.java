@@ -40,17 +40,14 @@ public class PrikazDej implements IPrikaz {
 
 	@Override
 	public String provedPrikaz(String... parametry) {
-		if (parametry.length < 2 || parametry.length > 3) { // zle zadanĂ˝ prĂ­kaz
+		if (parametry.length < 2 || parametry.length > 3) { 
 			return "Zadaj príkaz v tvare - dej niečo niekomu.";
 		} else {
 			Prostor aktualniProstor = plan.getAktualniProstor();
 			String aktualni = plan.nazevProstoru();
 
 			if (plan.nazevProstoru().equals("carodej") && batoh.obsahujeVecBatoh("diamant")
-					&& parametry[0].equals("diamant") && parametry[1].equals("carodej")) { // ak sa jednĂˇ o ÄŤarodeja,
-																							// po predanĂ­ diamantu nĂˇm
-																							// dĂˇ lektvar a informĂˇciu
-																							// o radnici
+					&& parametry[0].equals("diamant") && parametry[1].equals("carodej")) { 
 				batoh.vyberVecZBatohu("diamant");
 				plan.getAktualniProstor().vlozVec(new Vec("lektvar", true));
 				plan.getAktualniProstor().vlozVec(new Vec("diamant", false));
@@ -60,8 +57,7 @@ public class PrikazDej implements IPrikaz {
 			}
 
 			if (plan.nazevProstoru().equals("hospoda") && batoh.obsahujeVecBatoh("recept")
-					&& parametry[0].equals("recept") && parametry[1].equals("krcmar")) { // po predanĂ­ receptu nĂˇm dĂˇ
-																							// mapu
+					&& parametry[0].equals("recept") && parametry[1].equals("krcmar")) { 
 
 				batoh.vyberVecZBatohu("recept");
 				plan.pozoruj();
@@ -69,16 +65,13 @@ public class PrikazDej implements IPrikaz {
 				plan.pozoruj();
 				plan.getAktualniProstor().vlozVec(new Vec("recept", false));
 				plan.pozoruj();
-				// plan.getSousedniProstor().setZamceny(false);
-				plan.pozoruj();
 				return "Ďakujem za recept na pivo, pokračuj k vedcovi, on ti poradí ďalej. Tu máš mapu, aby si trafil."
 						+ '\n' + "veci v miestnosti: " + plan.getAktualniProstor().nazvyVeci();
 			}
 		}
 
 		if (plan.nazevProstoru().equals("nepratelske_kralovstvi") && batoh.obsahujeVecBatoh("lektvar")
-				&& parametry[0].equals("lektvar") && parametry[1].equals("straz")) { // po danĂ­ lektvĂˇru strĂˇĹľi je
-																						// drak oslobodenĂ˝
+				&& parametry[0].equals("lektvar") && parametry[1].equals("straz")) { 
 			batoh.vyberVecZBatohu("lektvar");
 			plan.getAktualniProstor().vlozVec(new Vec("drak", true));
 			plan.pozoruj();

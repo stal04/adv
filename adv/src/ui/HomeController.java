@@ -193,12 +193,18 @@ public class HomeController extends AnchorPane implements Observer {
 		seznamPostav.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getPostavy());
 		uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 		uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
+
 		Tooltip tooltip = new Tooltip();
-		tooltip.setText("Zadaj vstupný príkaz");
-		vstupniText.setTooltip(tooltip);
 
 		tooltip.setText("Pravým kliknutím môžte inicializovať príkaz mluv.");
 		seznamPostav.setTooltip(tooltip);
+		Tooltip tooltip2 = new Tooltip();
+		tooltip2.setText("Pravým kliknutím môžte inicializovať príkaz seber.");
+		seznamVeciMistnost.setTooltip(tooltip2);
+
+		Tooltip tooltip3 = new Tooltip();
+		tooltip3.setText("Pravým kliknutím môžte inicializovať príkaz seber.");
+		seznamVeciMistnost.setTooltip(tooltip3);
 
 		hra.getHerniPlan().addObserver(this);
 	}
@@ -218,28 +224,32 @@ public class HomeController extends AnchorPane implements Observer {
 			batoh.getChildren().add(batohh);
 			Image image = new Image(getClass().getResourceAsStream("recept.png"));
 			batohh.setImage(image);
-		}  if (hra.getHerniPlan().getBatoh().obsahujeVecBatoh("diamant")) {
+		}
+		if (hra.getHerniPlan().getBatoh().obsahujeVecBatoh("diamant")) {
 			ImageView batohh2 = new ImageView();
 			batohh2.setFitWidth(80);
 			batohh2.setFitHeight(80);
 			batoh.getChildren().add(batohh2);
 			Image image = new Image(getClass().getResourceAsStream("diamant.png"));
 			batohh2.setImage(image);
-		}  if (hra.getHerniPlan().getBatoh().obsahujeVecBatoh("mapa")) {
+		}
+		if (hra.getHerniPlan().getBatoh().obsahujeVecBatoh("mapa")) {
 			ImageView batohh3 = new ImageView();
 			batohh3.setFitWidth(100);
 			batohh3.setFitHeight(80);
 			batoh.getChildren().add(batohh3);
 			Image image = new Image(getClass().getResourceAsStream("mapa.png"));
 			batohh3.setImage(image);
-		}  if (hra.getHerniPlan().getBatoh().obsahujeVecBatoh("drak")) {
+		}
+		if (hra.getHerniPlan().getBatoh().obsahujeVecBatoh("drak")) {
 			ImageView batohh4 = new ImageView();
 			batohh4.setFitWidth(80);
 			batohh4.setFitHeight(80);
 			batoh.getChildren().add(batohh4);
 			Image image = new Image(getClass().getResourceAsStream("drak.png"));
 			batohh4.setImage(image);
-		}  if (hra.getHerniPlan().getBatoh().obsahujeVecBatoh("lektvar")) {
+		}
+		if (hra.getHerniPlan().getBatoh().obsahujeVecBatoh("lektvar")) {
 			ImageView batohh5 = new ImageView();
 			batohh5.setFitWidth(70);
 			batohh5.setFitHeight(80);
