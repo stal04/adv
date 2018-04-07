@@ -52,7 +52,7 @@ public class Start extends javafx.application.Application {
 		c.inicializuj(new Hra());
 
 		primaryStage.setTitle("Adventúra Dračie kráľovstvo");
-		primaryStage.setResizable(false);
+		primaryStage.setResizable(true);
 		primaryStage.setScene(new Scene(root));
 		primaryStage.show();
 	}

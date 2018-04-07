@@ -39,6 +39,7 @@ import logika.IHra;
 import logika.Postava;
 import logika.Prostor;
 import logika.Vec;
+import logika.Batoh;
 import logika.HerniPlan;
 import logika.Hra;
 import javafx.scene.layout.GridPane;
@@ -77,15 +78,27 @@ public class HomeController extends AnchorPane implements Observer {
 	private Tooltip tooltip;
 	@FXML
 	private ContextMenu cm;
-	
+
+	@FXML
 	private HBox batoh;
 
+	@FXML
+	private ImageView batohh;
+	@FXML
+	private ImageView batohh2;
+	@FXML
+	private ImageView batohh3;
+	@FXML
+	private ImageView batohh4;
+	@FXML
+	private ImageView batohh5;
 	private IHra hra;
 	private HerniPlan plan;
-	private String [ ] nazvyVeci;
+	private String[] nazvyVeci;
+	@FXML
 	private Icon vecIcon;
+	@FXML
 	URL umisteniObrazku;
-
 
 	/**
 	 * Metóda, ktorá sa spája s fxml súborom, ktoý obsahuje grafiku programu,
@@ -155,6 +168,7 @@ public class HomeController extends AnchorPane implements Observer {
 			String odpoved = hra.zpracujPrikaz("konec");
 			IHra hra = new Hra();
 
+			vstupniText.clear();
 			seznamVychodu.getItems().clear();
 			seznamPostav.getItems().clear();
 			seznamVeciMistnost.getItems().clear();
@@ -169,16 +183,16 @@ public class HomeController extends AnchorPane implements Observer {
 	 */
 
 	public void inicializuj(IHra hra) {
+
 		vystup.setText(hra.vratUvitani());
 		vystup.setEditable(false);
 		this.hra = hra;
 		seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().popisVychodu());
 		seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeci());
- 
+
 		seznamPostav.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getPostavy());
 		uzivatel.setX(hra.getHerniPlan().getAktualniProstor().getX());
 		uzivatel.setY(hra.getHerniPlan().getAktualniProstor().getY());
-
 		Tooltip tooltip = new Tooltip();
 		tooltip.setText("Zadaj vstupný príkaz");
 		vstupniText.setTooltip(tooltip);
@@ -194,27 +208,51 @@ public class HomeController extends AnchorPane implements Observer {
 	 */
 	@Override
 	public void update(Observable arg0, Object arg1) {
+
+		batoh.getChildren().clear();
+
+		if (hra.getHerniPlan().getBatoh().obsahujeVecBatoh("recept")) {
+			ImageView batohh = new ImageView();
+			batohh.setFitWidth(80);
+			batohh.setFitHeight(80);
+			batoh.getChildren().add(batohh);
+			Image image = new Image(getClass().getResourceAsStream("recept.png"));
+			batohh.setImage(image);
+		}  if (hra.getHerniPlan().getBatoh().obsahujeVecBatoh("diamant")) {
+			ImageView batohh2 = new ImageView();
+			batohh2.setFitWidth(80);
+			batohh2.setFitHeight(80);
+			batoh.getChildren().add(batohh2);
+			Image image = new Image(getClass().getResourceAsStream("diamant.png"));
+			batohh2.setImage(image);
+		}  if (hra.getHerniPlan().getBatoh().obsahujeVecBatoh("mapa")) {
+			ImageView batohh3 = new ImageView();
+			batohh3.setFitWidth(100);
+			batohh3.setFitHeight(80);
+			batoh.getChildren().add(batohh3);
+			Image image = new Image(getClass().getResourceAsStream("mapa.png"));
+			batohh3.setImage(image);
+		}  if (hra.getHerniPlan().getBatoh().obsahujeVecBatoh("drak")) {
+			ImageView batohh4 = new ImageView();
+			batohh4.setFitWidth(80);
+			batohh4.setFitHeight(80);
+			batoh.getChildren().add(batohh4);
+			Image image = new Image(getClass().getResourceAsStream("drak.png"));
+			batohh4.setImage(image);
+		}  if (hra.getHerniPlan().getBatoh().obsahujeVecBatoh("lektvar")) {
+			ImageView batohh5 = new ImageView();
+			batohh5.setFitWidth(70);
+			batohh5.setFitHeight(80);
+			batoh.getChildren().add(batohh5);
+			Image image = new Image(getClass().getResourceAsStream("lektvar.png"));
+			batohh5.setImage(image);
+		}
+
 		seznamVychodu.getItems().clear();
 		seznamPostav.getItems().clear();
 		seznamVeciMistnost.getItems().clear();
-		
-		/**
-		 * Metóda, ktorá updatuje polia s východom, postavami a východmi
-		 batoh.getChildren().clear();
-		
-		for (int i = 1; i < nazvyVeci.length; i++) {
-			ImageView view = new ImageView();
-		view.setFitHeight(100);
-		view.setFitWidth(100);
-		batoh.getChildren().add(view);
-			umisteniObrazku = this.getClass().getResource("/zdroje/"+nazvyVeci[i]+".png");
-		Image image = new Image(getClass().getResourceAsStream(nazvyVeci[i]+".png"));
-		
-		}
-		*/
-		
-		seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeci());
 
+		seznamVeciMistnost.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getVeci());
 		seznamPostav.getItems().addAll(hra.getHerniPlan().getAktualniProstor().getPostavy());
 
 		seznamVychodu.getItems().addAll(hra.getHerniPlan().getAktualniProstor().popisVychodu());
@@ -246,5 +284,3 @@ public class HomeController extends AnchorPane implements Observer {
 
 	}
 }
-		
-
