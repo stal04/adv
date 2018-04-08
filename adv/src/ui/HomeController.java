@@ -224,6 +224,8 @@ public class HomeController extends AnchorPane implements Observer {
 			batoh.getChildren().add(batohh);
 			Image image = new Image(getClass().getResourceAsStream("recept.png"));
 			batohh.setImage(image);
+			Tooltip tool = new Tooltip("recept");
+			tooltip.install(batohh, tool);
 		}
 		if (hra.getHerniPlan().getBatoh().obsahujeVecBatoh("diamant")) {
 			ImageView batohh2 = new ImageView();
@@ -232,6 +234,8 @@ public class HomeController extends AnchorPane implements Observer {
 			batoh.getChildren().add(batohh2);
 			Image image = new Image(getClass().getResourceAsStream("diamant.png"));
 			batohh2.setImage(image);
+			Tooltip tool = new Tooltip("diamant");
+			tooltip.install(batohh2, tool);
 		}
 		if (hra.getHerniPlan().getBatoh().obsahujeVecBatoh("mapa")) {
 			ImageView batohh3 = new ImageView();
@@ -240,6 +244,8 @@ public class HomeController extends AnchorPane implements Observer {
 			batoh.getChildren().add(batohh3);
 			Image image = new Image(getClass().getResourceAsStream("mapa.png"));
 			batohh3.setImage(image);
+			Tooltip tool = new Tooltip("mapa");
+			tooltip.install(batohh3, tool);
 		}
 		if (hra.getHerniPlan().getBatoh().obsahujeVecBatoh("drak")) {
 			ImageView batohh4 = new ImageView();
@@ -248,6 +254,8 @@ public class HomeController extends AnchorPane implements Observer {
 			batoh.getChildren().add(batohh4);
 			Image image = new Image(getClass().getResourceAsStream("drak.png"));
 			batohh4.setImage(image);
+			Tooltip tool = new Tooltip("drak");
+			tooltip.install(batohh4, tool);
 		}
 		if (hra.getHerniPlan().getBatoh().obsahujeVecBatoh("lektvar")) {
 			ImageView batohh5 = new ImageView();
@@ -256,6 +264,8 @@ public class HomeController extends AnchorPane implements Observer {
 			batoh.getChildren().add(batohh5);
 			Image image = new Image(getClass().getResourceAsStream("lektvar.png"));
 			batohh5.setImage(image);
+			Tooltip tool = new Tooltip("lektvar");
+			tooltip.install(batohh5, tool);
 		}
 
 		seznamVychodu.getItems().clear();
